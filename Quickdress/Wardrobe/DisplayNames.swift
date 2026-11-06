@@ -1,7 +1,7 @@
 import SwiftUI
 import QuickdressCore
 
-extension Category {
+extension QuickdressCore.Category {
     var displayName: String {
         switch self {
         case .top: return String(localized: "Top")

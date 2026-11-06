@@ -9,7 +9,7 @@ final class SwiftDataItemStoreTests: XCTestCase {
         try SwiftDataItemStore(container: SwiftDataItemStore.makeContainer(inMemory: true))
     }
 
-    private func makeItem(_ category: Category, _ colour: Palette) -> ClothingItem {
+    private func makeItem(_ category: QuickdressCore.Category, _ colour: Palette) -> ClothingItem {
         ClothingItem(category: category, colour: colour, warmth: 3, formality: 2, comfort: 4, seasons: [.autumn])
     }
 

@@ -12,7 +12,7 @@ struct WardrobeFilterBar: View {
                     FilterChip(title: String(localized: "All"), isSelected: filter.category == nil) {
                         filter.category = nil
                     }
-                    ForEach(Category.allCases, id: \.self) { category in
+                    ForEach(QuickdressCore.Category.allCases, id: \.self) { category in
                         FilterChip(title: category.pluralName, isSelected: filter.category == category) {
                             filter.category = filter.category == category ? nil : category
                         }

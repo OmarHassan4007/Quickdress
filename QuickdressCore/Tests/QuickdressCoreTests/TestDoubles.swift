@@ -6,7 +6,7 @@ enum TestError: Error {
 }
 
 extension ClothingItem {
-    static func sample(_ category: Category = .top, _ colour: Palette = .navy) -> ClothingItem {
+    static func sample(_ category: QuickdressCore.Category = .top, _ colour: Palette = .navy) -> ClothingItem {
         ClothingItem(
             category: category,
             colour: colour,

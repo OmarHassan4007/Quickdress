@@ -65,7 +65,7 @@ final class ClothingItemTests: XCTestCase {
     }
 
     func testRawValuesAreStable() {
-        XCTAssertEqual(Category.allCases.map(\.rawValue), ["top", "bottom", "outerwear", "shoes", "accessory"])
+        XCTAssertEqual(QuickdressCore.Category.allCases.map(\.rawValue), ["top", "bottom", "outerwear", "shoes", "accessory"])
         XCTAssertEqual(Season.allCases.map(\.rawValue), ["spring", "summer", "autumn", "winter"])
         XCTAssertEqual(Palette.grey.rawValue, "grey")
     }

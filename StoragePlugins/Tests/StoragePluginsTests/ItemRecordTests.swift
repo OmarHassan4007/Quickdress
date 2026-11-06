@@ -54,7 +54,7 @@ final class ItemRecordTests: XCTestCase {
         context.insert(ItemRecord(shoes))
         try context.save()
 
-        let raw = Category.shoes.rawValue
+        let raw = QuickdressCore.Category.shoes.rawValue
         let descriptor = FetchDescriptor<ItemRecord>(predicate: #Predicate { $0.categoryRaw == raw })
         let found = try context.fetch(descriptor).map { try $0.toDomain() }
         XCTAssertEqual(found, [shoes])

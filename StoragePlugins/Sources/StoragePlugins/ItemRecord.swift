@@ -38,7 +38,7 @@ final class ItemRecord {
     }
 
     func toDomain() throws -> ClothingItem {
-        guard let category = Category(rawValue: categoryRaw) else {
+        guard let category = QuickdressCore.Category(rawValue: categoryRaw) else {
             throw ItemRecordError.unknownValue(field: "category", value: categoryRaw, itemID: id)
         }
         guard let colour = Palette(rawValue: colourRaw) else {
