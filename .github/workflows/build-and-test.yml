@@ -1,0 +1,44 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test QuickdressCore
+        run: swift test --package-path QuickdressCore
+
+      - name: Test StoragePlugins
+        run: swift test --package-path StoragePlugins
+
+      - name: Generate the Xcode project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+
+      - name: Build the app for the iOS Simulator
+        run: |
+          xcodebuild build \
+            -project Quickdress.xcodeproj \
+            -scheme Quickdress \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Zip the app
+        run: |
+          cd build/Build/Products/Debug-iphonesimulator
+          zip -r "$GITHUB_WORKSPACE/Quickdress-simulator.zip" Quickdress.app
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Quickdress-simulator
+          path: Quickdress-simulator.zip
