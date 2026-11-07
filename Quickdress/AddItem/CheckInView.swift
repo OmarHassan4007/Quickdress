@@ -124,11 +124,133 @@ struct CheckInView: View {
                 .buttonStyle(.plain)
             }
         }
-        .padding(.bottom, 14)
+        .padding(.bottom, onRetake == nil ? 0 : 14)
         .background(cardFill, in: RoundedRectangle(cornerRadius: 18))
     }
 
-    // MARK: Remaining View code (categoryCard, colourCard, levelsCard, seasonCard) unchanged...
+    // MARK: Category
+
+    private var categoryCard: some View {
+        Card(title: "Category", missing: model.category == nil && !model.isPreparing, fill: cardFill) {
+            HStack(spacing: 0) {
+                ForEach(QuickdressCore.Category.allCases, id: \.self) { category in
+                    let isSelected = model.category == category
+                    Button {
+                        model.choose(category)
+                    } label: {
+                        Text(category.displayName)
+                            .font(.footnote)
+                            .lineLimit(1)
+                            .fixedSize()
+                            .foregroundStyle(isSelected ? Color.white : Color.black)
+                            .frame(maxWidth: .infinity, minHeight: 36)
+                            .background(isSelected ? Color.black : Color.clear, in: RoundedRectangle(cornerRadius: 8))
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                }
+            }
+            .padding(3)
+            .background(Color.white, in: RoundedRectangle(cornerRadius: 10))
+        }
+    }
+
+    // MARK: Colour
+
+    private var colourCard: some View {
+        Card(title: "Colour", detail: colourDetail, missing: model.colour == nil && !model.isPreparing, fill: cardFill) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 2) {
+                ForEach(Palette.allCases, id: \.self) { colour in
+                    let isSelected = model.colour == colour && model.exactColour == nil
+                    Button {
+                        model.choose(colour)
+                    } label: {
+                        Circle()
+                            .fill(colour.swatch)
+                            .overlay(Circle().strokeBorder(Color.black.opacity(0.12)))
+                            .frame(width: 32, height: 32)
+                            .padding(3)
+                            .overlay(Circle().strokeBorder(Color.black, lineWidth: isSelected ? 2 : 0))
+                            .frame(width: 44, height: 44)
+                            .contentShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                    .contextMenu { Text(colour.displayName) }
+                    .accessibilityLabel(colour.displayName)
+                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                }
+                ColorPicker(selection: Binding(
+                    get: { model.exactColour.map(Color.init(rgb:)) ?? model.colour?.swatch ?? .black },
+                    set: { model.chooseExact(RGB(colour: $0)) }
+                ), supportsOpacity: false) {
+                    Text("Exact colour")
+                }
+                .labelsHidden()
+                .scaleEffect(1.3)
+                .frame(width: 44, height: 44)
+                .accessibilityLabel("Exact colour, with a colour wheel and an eyedropper")
+            }
+        }
+    }
+
+    private var colourDetail: String? {
+        guard let colour = model.colour else { return nil }
+        if let exact = model.exactColour { return "\(colour.displayName) · \(exact.hex)" }
+        return colour.displayName
+    }
+
+    // MARK: Ratings
+
+    private var levelsCard: some View {
+        VStack(spacing: 0) {
+            ForEach(Array([CheckInViewModel.Line.warmth, .formality, .comfort].enumerated()), id: \.offset) { index, line in
+                if index > 0 { Divider().padding(.leading, 16) }
+                LevelRow(
+                    title: levelName(line),
+                    value: model.level(line),
+                    set: { model.setLevel(line, to: $0) },
+                    adjust: { model.adjust(line, by: $0) }
+                )
+            }
+        }
+        .padding(.vertical, 4)
+        .background(cardFill, in: RoundedRectangle(cornerRadius: 18))
+    }
+
+    private func levelName(_ line: CheckInViewModel.Line) -> String {
+        switch line {
+        case .warmth: return String(localized: "Warmth")
+        case .formality: return String(localized: "Formality")
+        default: return String(localized: "Comfort")
+        }
+    }
+
+    // MARK: Season
+
+    private var seasonCard: some View {
+        Card(title: "Season", missing: model.seasons.isEmpty && !model.isPreparing, fill: cardFill) {
+            HStack(spacing: 8) {
+                ForEach([Season.winter, .spring, .summer, .autumn], id: \.self) { season in
+                    let isSelected = model.seasons.contains(season)
+                    Button {
+                        model.toggle(season)
+                    } label: {
+                        Text(season.displayName)
+                            .font(.body)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            .foregroundStyle(isSelected ? Color.white : Color.black)
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                            .background(isSelected ? Color.black : Color.white, in: Capsule())
+                            .contentShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                }
+            }
+        }
+    }
 
     private func save() {
         if model.save() {

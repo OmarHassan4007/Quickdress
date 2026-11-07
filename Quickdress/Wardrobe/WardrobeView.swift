@@ -40,7 +40,7 @@ struct WardrobeView: View {
                 }
                 .toolbarBackground(Theme.ground, for: .navigationBar)
                 .navigationDestination(for: ClothingItem.self) { item in
-                    ItemDetailView(item: item, photo: model.photo(for: item))
+                    ItemDetailView(item: item, wardrobe: model)
                 }
         }
         .task {

@@ -13,7 +13,10 @@ final class CheckInViewModel: Identifiable {
     }
 
     let id: UUID
-    var isNewItem: Bool
+    /// False when editing an item that is already in the wardrobe.
+    let isNewItem: Bool
+    /// The saved photo of an item being edited. Editing never replaces the photo.
+    @ObservationIgnored private let existingPhoto: PhotoRef
     let originalPhoto: Data
     private(set) var cutOut: Data?
     private(set) var isCuttingOut = false
@@ -43,21 +46,29 @@ final class CheckInViewModel: Identifiable {
 
     // MARK: Initializers
 
-    /// Init for creating a NEW item
+    /// A new item, from a photo just taken or picked.
     init(photo: Data, manager: WardrobeManager) {
         self.id = UUID()
         self.originalPhoto = photo
+        self.existingPhoto = ""
         self.manager = manager
         self.number = (try? manager.nextNumber()) ?? 1
         self.isNewItem = true
     }
 
-    /// Init for editing an EXISTING item
+    /// An item already in the wardrobe, with its saved answers filled in.
     init(item: ClothingItem, manager: WardrobeManager) {
+        let photo = manager.photo(for: item) ?? Data()
         self.id = item.id
-        self.originalPhoto = item.photo
+        self.originalPhoto = photo
+        self.existingPhoto = item.photo
         self.manager = manager
-        self.useOriginal = true
+        // A saved cut-out (PNG) is shown as a cut-out, a full photo as a photo.
+        if photo.starts(with: [0x89, 0x50, 0x4E, 0x47]) {
+            self.cutOut = photo
+        } else {
+            self.useOriginal = true
+        }
         self.category = item.category
         self.colour = item.colour
         if let exactHex = item.exactColour {
@@ -221,7 +232,7 @@ final class CheckInViewModel: Identifiable {
     /// Saves or updates the item through the manager.
     func save() -> Bool {
         guard canSave, let category, let colour else { return false }
-        
+
         let itemToSave = ClothingItem(
             id: id,
             category: category,
@@ -230,20 +241,24 @@ final class CheckInViewModel: Identifiable {
             formality: formality,
             comfort: comfort,
             seasons: seasons,
+            photo: existingPhoto,
             number: number,
             exactColour: exactColour?.hex
         )
-        
+
         do {
             if isNewItem {
                 saved = try manager.addItem(itemToSave, photo: photoToSave)
             } else {
-                saved = try manager.updateItem(itemToSave, photo: photoToSave)
+                try manager.update(itemToSave)
+                saved = itemToSave
             }
             openLine = nil
             return true
         } catch {
-            saveError = String(localized: "Nothing was saved. Try again, or cancel and try again.")
+            saveError = isNewItem
+                ? String(localized: "Nothing was saved. Try again, or cancel and take the photo again.")
+                : String(localized: "Your changes were not saved. Try again.")
             return false
         }
     }
