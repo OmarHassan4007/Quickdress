@@ -5,8 +5,8 @@ Resolve Package Graph
 
 
 Resolved source packages:
-  StoragePlugins: /Users/marwanosama/Software engineering/Quickdress-team/StoragePlugins
   CapturePlugins: /Users/marwanosama/Software engineering/Quickdress-team/CapturePlugins
+  StoragePlugins: /Users/marwanosama/Software engineering/Quickdress-team/StoragePlugins
   QuickdressCore: /Users/marwanosama/Software engineering/Quickdress-team/QuickdressCore
 
 ComputePackagePrebuildTargetDependencyGraph
@@ -50,65 +50,137 @@ GatherProvisioningInputs
 
 CreateBuildDescription
 
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -x c -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
-
-Build description signature: 797a26d132929a8fc7f80830e18ae8d3
-Build description path: /Users/marwanosama/Software engineering/Quickdress-team/build/Build/Intermediates.noindex/XCBuildData/797a26d132929a8fc7f80830e18ae8d3.xcbuilddata
 ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache
     cd /Users/marwanosama/Software\ engineering/Quickdress-team/Quickdress.xcodeproj
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache
+
+MkDir /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /bin/mkdir -p /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks
+
+WriteAuxiliaryFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.LinkFileList (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    write-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.LinkFileList
+
+MkDir /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /bin/mkdir -p /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+MkDir /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /bin/mkdir -p /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns
 
 ProcessInfoPlistFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/Info.plist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore\ product.build/empty-QuickdressCore_-6968DC78CEBC794B_PackageProduct.plist (in target 'QuickdressCore' from project 'QuickdressCore')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team/QuickdressCore
     builtin-infoPlistUtility /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore\ product.build/empty-QuickdressCore_-6968DC78CEBC794B_PackageProduct.plist -producttype com.apple.product-type.framework -expandbuildsettings -format binary -platform iphonesimulator -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/Info.plist
 
+Ld /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct normal (in target 'QuickdressCore' from project 'QuickdressCore')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/QuickdressCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -filelist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore\ product.build/Objects-normal/arm64/QuickdressCore_-6968DC78CEBC794B_PackageProduct.LinkFileList -install_name @rpath/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore\ product.build/Objects-normal/arm64/QuickdressCore_-6968DC78CEBC794B_PackageProduct_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore\ product.build/Objects-normal/arm64/QuickdressCore_-6968DC78CEBC794B_PackageProduct_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Wl,-no_warn_duplicate_libraries -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct -Xlinker -add_ast_path -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore.build/Objects-normal/arm64/QuickdressCore.swiftmodule @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/QuickdressCore.build/Debug-iphonesimulator/QuickdressCore.build/Objects-normal/arm64/QuickdressCore-linker-args.resp
+
+WriteAuxiliaryFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyMetadataFileList (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    write-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyMetadataFileList
+
+SwiftDriver QuickdressTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name QuickdressTests -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
+
+GenerateTAPI /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct.tbd (in target 'QuickdressCore' from project 'QuickdressCore')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/QuickdressCore
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/tapi stubify -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct.tbd
+
+WriteAuxiliaryFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/StoragePlugins.DependencyMetadataFileList (in target 'StoragePlugins' from project 'StoragePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/StoragePlugins
+    write-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/StoragePlugins.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/CapturePlugins.DependencyMetadataFileList (in target 'CapturePlugins' from project 'CapturePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/CapturePlugins
+    write-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/CapturePlugins.DependencyMetadataFileList
+
+ExtractAppIntentsMetadata (in target 'StoragePlugins' from project 'StoragePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/StoragePlugins
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name StoragePlugins --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier storageplugins.StoragePlugins --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/StoragePlugins.appintents --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/StoragePlugins.o --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/StoragePlugins_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/StoragePlugins.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/StoragePlugins.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/StoragePlugins.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/StoragePlugins.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-07 21:05:34.382 appintentsmetadataprocessor[84462:23917592] Starting appintentsmetadataprocessor export
+2026-11-07 21:05:34.529 appintentsmetadataprocessor[84462:23917592] Extracted no relevant App Intents symbols, skipping writing output
+
+ExtractAppIntentsMetadata (in target 'CapturePlugins' from project 'CapturePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/CapturePlugins
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name CapturePlugins --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier captureplugins.CapturePlugins --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/CapturePlugins.appintents --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/CapturePlugins.o --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/CapturePlugins_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/CapturePlugins.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/CapturePlugins.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/CapturePlugins.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/CapturePlugins.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-07 21:05:34.382 appintentsmetadataprocessor[84463:23917593] Starting appintentsmetadataprocessor export
+2026-11-07 21:05:34.529 appintentsmetadataprocessor[84463:23917593] Extracted no relevant App Intents symbols, skipping writing output
+
+Ld /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct normal (in target 'CapturePlugins' from project 'CapturePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/CapturePlugins
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -filelist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins\ product.build/Objects-normal/arm64/CapturePlugins_54A46DB07E8C9C4_PackageProduct.LinkFileList -install_name @rpath/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins\ product.build/Objects-normal/arm64/CapturePlugins_54A46DB07E8C9C4_PackageProduct_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins\ product.build/Objects-normal/arm64/CapturePlugins_54A46DB07E8C9C4_PackageProduct_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct -Xlinker -add_ast_path -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/CapturePlugins.swiftmodule @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins.build/Objects-normal/arm64/CapturePlugins-linker-args.resp
+
+SwiftDriver\ Compilation\ Requirements QuickdressTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name QuickdressTests -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation QuickdressTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name QuickdressTests -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
+
 ProcessInfoPlistFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/Info.plist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins\ product.build/empty-CapturePlugins_54A46DB07E8C9C4_PackageProduct.plist (in target 'CapturePlugins' from project 'CapturePlugins')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team/CapturePlugins
     builtin-infoPlistUtility /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/CapturePlugins.build/Debug-iphonesimulator/CapturePlugins\ product.build/empty-CapturePlugins_54A46DB07E8C9C4_PackageProduct.plist -producttype com.apple.product-type.framework -expandbuildsettings -format binary -platform iphonesimulator -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/Info.plist
 
-SwiftDriver Quickdress normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Quickdress' from project 'Quickdress')
+GenerateTAPI /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct.tbd (in target 'CapturePlugins' from project 'CapturePlugins')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team/CapturePlugins
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/tapi stubify -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct.tbd
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/libXCTestSwiftSupport.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib (in target 'Quickdress' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Quickdress -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
-
-SwiftEmitModule normal arm64 Emitting\ module\ for\ Quickdress (in target 'Quickdress' from project 'Quickdress')
-
-EmitSwiftModule normal arm64 (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    
-
-SwiftDriverJobDiscovery normal arm64 Emitting module for Quickdress (in target 'Quickdress' from project 'Quickdress')
-
-SwiftDriver\ Compilation\ Requirements Quickdress normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Quickdress -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
-
-Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftsourceinfo (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftsourceinfo /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
-
-Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.abi.json (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.abi.json /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.swiftmodule/arm64-apple-ios-simulator.abi.json
-
-SwiftCompile normal arm64 Compiling\ CheckInView.swift /Users/marwanosama/Software\ engineering/Quickdress-team/Quickdress/AddItem/CheckInView.swift (in target 'Quickdress' from project 'Quickdress')
-
-SwiftCompile normal arm64 /Users/marwanosama/Software\ engineering/Quickdress-team/Quickdress/AddItem/CheckInView.swift (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    
-
-SwiftDriverJobDiscovery normal arm64 Compiling CheckInView.swift (in target 'Quickdress' from project 'Quickdress')
-
-SwiftDriver\ Compilation Quickdress normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Quickdress -Onone -enforce-exclusivity\=checked @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/SDKStatCaches.noindex/iphonesimulator26.2-23C57-7d00a8b37fbd7999ea79df8ebc024bf0.sdkstatcache -output-file-map /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -sdk-module-cache-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_const_extract_protocols.json -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-generated-files.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-own-target-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress-b7abf0a722ee1283f83497a91105c07f-VFS-iphonesimulator/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-project-headers.hmap -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources-normal/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources/arm64 -Xcc -I/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-Swift.h -working-directory /Users/marwanosama/Software\ engineering/Quickdress-team -experimental-emit-module-separately -disable-cmo
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
 
 Ld /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress.debug.dylib normal (in target 'Quickdress' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -filelist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.LinkFileList -install_name @rpath/Quickdress.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.swiftmodule @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress-linker-args.resp -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress.debug.dylib -Xlinker -add_ast_path -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/StoragePlugins.swiftmodule @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/StoragePlugins.build/Debug-iphonesimulator/StoragePlugins.build/Objects-normal/arm64/StoragePlugins-linker-args.resp
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/libXCTestBundleInject.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestBundleInject.dylib (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestBundleInject.dylib /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCUIAutomation.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCTest.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCUnit.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCTestCore.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCTestSupport.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/XCTAutomationSupport.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/Testing.framework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -remove-static-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -remove-static-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks
+
+ProcessInfoPlistFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Info.plist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/empty-Quickdress.plist (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-infoPlistUtility /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/empty-Quickdress.plist -producttype com.apple.product-type.application -genpkginfo /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -scanforprivacyfile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework -scanforprivacyfile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Info.plist
 
 ConstructStubExecutorLinkFileList /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-ExecutorLinkFileList-normal-arm64.txt (in target 'Quickdress' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
@@ -119,34 +191,50 @@ Ld /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress-ExecutorLinkFileList-normal-arm64.txt /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress.debug.dylib -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress
 
-ProcessInfoPlistFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Info.plist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/empty-Quickdress.plist (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    builtin-infoPlistUtility /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/empty-Quickdress.plist -producttype com.apple.product-type.application -genpkginfo /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -scanforprivacyfile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework -scanforprivacyfile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Info.plist
-
-ExtractAppIntentsMetadata (in target 'Quickdress' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Quickdress --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier edu.aucegypt.quickdress --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
-2026-11-07 20:25:00.284 appintentsmetadataprocessor[78535:23826238] Starting appintentsmetadataprocessor export
-2026-11-07 20:25:00.288 appintentsmetadataprocessor[78535:23826238] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
-
 CopySwiftLibs /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app (in target 'Quickdress' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
     builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress.debug.dylib --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/SystemExtensions --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Extensions --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
 Ignoring --strip-bitcode because --sign was not passed
 
+ExtractAppIntentsMetadata (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Quickdress --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier edu.aucegypt.quickdress --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Objects-normal/arm64/Quickdress.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-07 21:05:35.372 appintentsmetadataprocessor[84472:23917667] Starting appintentsmetadataprocessor export
+2026-11-07 21:05:35.375 appintentsmetadataprocessor[84472:23917667] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'Quickdress' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Info.plist --temp-dir-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/ssu --bundle-id edu.aucegypt.quickdress --product-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app --extracted-metadata-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Metadata.appintents --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/Quickdress.build/Quickdress.DependencyMetadataFileList --archive-ssu-assets
+2026-11-07 21:05:35.402 appintentsnltrainingprocessor[84473:23917668] Parsing options for appintentsnltrainingprocessor
+2026-11-07 21:05:35.403 appintentsnltrainingprocessor[84473:23917668] No AppShortcuts found - Skipping.
+
 Ld /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/QuickdressTests normal (in target 'QuickdressTests' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -F/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -filelist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -bundle_loader /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress -Xlinker -object_path_lto -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.swiftmodule @/Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests-linker-args.resp -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Wl,-no_warn_duplicate_libraries -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework/QuickdressCore_-6968DC78CEBC794B_PackageProduct /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework/CapturePlugins_54A46DB07E8C9C4_PackageProduct /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/Quickdress.debug.dylib -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/QuickdressTests
 
-ExtractAppIntentsMetadata (in target 'QuickdressTests' from project 'Quickdress')
-    cd /Users/marwanosama/Software\ engineering/Quickdress-team
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name QuickdressTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier edu.aucegypt.quickdress.QuickdressTests --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/QuickdressTests --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
-2026-11-07 20:25:00.578 appintentsmetadataprocessor[78538:23826256] Starting appintentsmetadataprocessor export
-2026-11-07 20:25:00.580 appintentsmetadataprocessor[78538:23826256] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
-
 ProcessInfoPlistFile /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Info.plist /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/empty-QuickdressTests.plist (in target 'QuickdressTests' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
     builtin-infoPlistUtility /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/empty-QuickdressTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -format binary -platform iphonesimulator -o /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Info.plist
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -remove-static-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/QuickdressCore_-6968DC78CEBC794B_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks
+
+Copy /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -remove-static-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/PackageFrameworks/CapturePlugins_54A46DB07E8C9C4_PackageProduct.framework /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Frameworks
+
+ExtractAppIntentsMetadata (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name QuickdressTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk --xcode-version 17C529 --platform-family iOS --deployment-target 17.0 --bundle-identifier edu.aucegypt.quickdress.QuickdressTests --output /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest --target-triple arm64-apple-ios17.0-simulator --binary-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/QuickdressTests --dependency-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests_dependency_info.dat --stringsdata-file /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftFileList --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests.DependencyMetadataFileList --static-metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/Objects-normal/arm64/QuickdressTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-07 21:05:35.799 appintentsmetadataprocessor[84476:23917684] Starting appintentsmetadataprocessor export
+2026-11-07 21:05:35.800 appintentsmetadataprocessor[84476:23917684] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'QuickdressTests' from project 'Quickdress')
+    cd /Users/marwanosama/Software\ engineering/Quickdress-team
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Info.plist --temp-dir-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/ssu --bundle-id edu.aucegypt.quickdress.QuickdressTests --product-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest --extracted-metadata-path /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest/Metadata.appintents --metadata-file-list /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressTests.build/QuickdressTests.DependencyMetadataFileList --archive-ssu-assets
+2026-11-07 21:05:35.817 appintentsnltrainingprocessor[84477:23917685] Parsing options for appintentsnltrainingprocessor
+2026-11-07 21:05:35.817 appintentsnltrainingprocessor[84477:23917685] No AppShortcuts found - Skipping.
 
 CopySwiftLibs /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/Quickdress.app/PlugIns/QuickdressTests.xctest (in target 'QuickdressTests' from project 'Quickdress')
     cd /Users/marwanosama/Software\ engineering/Quickdress-team
@@ -166,23 +254,23 @@ CopySwiftLibs /Users/marwanosama/Software\ engineering/Quickdress-team/build/Bui
     builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/QuickdressUITests --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/Frameworks --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/PlugIns --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/SystemExtensions --scan-folder /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Products/Debug-iphonesimulator/QuickdressUITests-Runner.app/PlugIns/QuickdressUITests.xctest/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/marwanosama/Software\ engineering/Quickdress-team/build/Build/Intermediates.noindex/Quickdress.build/Debug-iphonesimulator/QuickdressUITests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
 Ignoring --strip-bitcode because --sign was not passed
 
-Test Suite 'All tests' started at 2026-11-07 20:25:10.701.
-Test Suite 'QuickdressTests.xctest' started at 2026-11-07 20:25:10.702.
-Test Suite 'CheckInViewModelTests' started at 2026-11-07 20:25:10.702.
+Test Suite 'All tests' started at 2026-11-07 21:05:58.150.
+Test Suite 'QuickdressTests.xctest' started at 2026-11-07 21:05:58.195.
+Test Suite 'CheckInViewModelTests' started at 2026-11-07 21:05:58.195.
 Test Case '-[QuickdressTests.CheckInViewModelTests testAFailedSaveKeepsNothingAndShowsAnError]' started.
-Test Case '-[QuickdressTests.CheckInViewModelTests testAFailedSaveKeepsNothingAndShowsAnError]' passed (0.004 seconds).
+Test Case '-[QuickdressTests.CheckInViewModelTests testAFailedSaveKeepsNothingAndShowsAnError]' passed (0.050 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testChangingASuggestedAnswerRemovesItsMark]' started.
 Test Case '-[QuickdressTests.CheckInViewModelTests testChangingASuggestedAnswerRemovesItsMark]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testEditLoadsTheSavedAnswersAndSkipsTheCutOut]' started.
 Test Case '-[QuickdressTests.CheckInViewModelTests testEditLoadsTheSavedAnswersAndSkipsTheCutOut]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testEditShowsASavedCutOutAsACutOut]' started.
-Test Case '-[QuickdressTests.CheckInViewModelTests testEditShowsASavedCutOutAsACutOut]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.CheckInViewModelTests testEditShowsASavedCutOutAsACutOut]' passed (0.000 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testExactColourIsKeptAndNamedByTheNearestPaletteColour]' started.
-Test Case '-[QuickdressTests.CheckInViewModelTests testExactColourIsKeptAndNamedByTheNearestPaletteColour]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.CheckInViewModelTests testExactColourIsKeptAndNamedByTheNearestPaletteColour]' passed (0.003 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testNewItemCannotBeSavedUntilCategoryColourAndSeasonAreAnswered]' started.
 Test Case '-[QuickdressTests.CheckInViewModelTests testNewItemCannotBeSavedUntilCategoryColourAndSeasonAreAnswered]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testRatingsStayBetweenOneAndFive]' started.
-Test Case '-[QuickdressTests.CheckInViewModelTests testRatingsStayBetweenOneAndFive]' passed (0.000 seconds).
+Test Case '-[QuickdressTests.CheckInViewModelTests testRatingsStayBetweenOneAndFive]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testSavingAnEditUpdatesTheSameItemAndKeepsItsPhotoAndNumber]' started.
 Test Case '-[QuickdressTests.CheckInViewModelTests testSavingAnEditUpdatesTheSameItemAndKeepsItsPhotoAndNumber]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testSavingANewItemStoresItsAnswersPhotoAndNextNumber]' started.
@@ -190,346 +278,349 @@ Test Case '-[QuickdressTests.CheckInViewModelTests testSavingANewItemStoresItsAn
 Test Case '-[QuickdressTests.CheckInViewModelTests testSuggestionsFillUnansweredLinesAndAreMarkedForChecking]' started.
 Test Case '-[QuickdressTests.CheckInViewModelTests testSuggestionsFillUnansweredLinesAndAreMarkedForChecking]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.CheckInViewModelTests testSuggestionsNeverOverwriteWhatTheUserChose]' started.
-Test Case '-[QuickdressTests.CheckInViewModelTests testSuggestionsNeverOverwriteWhatTheUserChose]' passed (0.001 seconds).
-Test Suite 'CheckInViewModelTests' passed at 2026-11-07 20:25:10.721.
-	 Executed 11 tests, with 0 failures (0 unexpected) in 0.009 (0.019) seconds
-Test Suite 'WardrobeViewModelTests' started at 2026-11-07 20:25:10.761.
+Test Case '-[QuickdressTests.CheckInViewModelTests testSuggestionsNeverOverwriteWhatTheUserChose]' passed (0.000 seconds).
+Test Suite 'CheckInViewModelTests' passed at 2026-11-07 21:05:58.715.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.059 (0.520) seconds
+Test Suite 'WardrobeViewModelTests' started at 2026-11-07 21:05:58.716.
 Test Case '-[QuickdressTests.WardrobeViewModelTests testAnEditShowsUpInTheGridRightAway]' started.
-Test Case '-[QuickdressTests.WardrobeViewModelTests testAnEditShowsUpInTheGridRightAway]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.WardrobeViewModelTests testAnEditShowsUpInTheGridRightAway]' passed (0.151 seconds).
 Test Case '-[QuickdressTests.WardrobeViewModelTests testCategoryAndSeasonFiltersCombine]' started.
 Test Case '-[QuickdressTests.WardrobeViewModelTests testCategoryAndSeasonFiltersCombine]' passed (0.001 seconds).
 Test Case '-[QuickdressTests.WardrobeViewModelTests testClearFiltersShowsEverythingAgain]' started.
-Test Case '-[QuickdressTests.WardrobeViewModelTests testClearFiltersShowsEverythingAgain]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.WardrobeViewModelTests testClearFiltersShowsEverythingAgain]' passed (0.000 seconds).
 Test Case '-[QuickdressTests.WardrobeViewModelTests testDeletingAnItemRemovesItAndItsPhotoAndRefreshesTheGrid]' started.
-Test Case '-[QuickdressTests.WardrobeViewModelTests testDeletingAnItemRemovesItAndItsPhotoAndRefreshesTheGrid]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.WardrobeViewModelTests testDeletingAnItemRemovesItAndItsPhotoAndRefreshesTheGrid]' passed (0.000 seconds).
 Test Case '-[QuickdressTests.WardrobeViewModelTests testLoadShowsEveryItem]' started.
-Test Case '-[QuickdressTests.WardrobeViewModelTests testLoadShowsEveryItem]' passed (0.001 seconds).
+Test Case '-[QuickdressTests.WardrobeViewModelTests testLoadShowsEveryItem]' passed (0.004 seconds).
 Test Case '-[QuickdressTests.WardrobeViewModelTests testRatingBandFilter]' started.
-Test Case '-[QuickdressTests.WardrobeViewModelTests testRatingBandFilter]' passed (0.004 seconds).
-Test Suite 'WardrobeViewModelTests' passed at 2026-11-07 20:25:10.770.
-	 Executed 6 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
-Test Suite 'QuickdressTests.xctest' passed at 2026-11-07 20:25:10.770.
-	 Executed 17 tests, with 0 failures (0 unexpected) in 0.016 (0.068) seconds
-Test Suite 'All tests' passed at 2026-11-07 20:25:10.770.
-	 Executed 17 tests, with 0 failures (0 unexpected) in 0.016 (0.069) seconds
-2026-11-07 20:25:12.144401+0200 QuickdressUITests-Runner[78547:23826752] [Default] Running tests...
+Test Case '-[QuickdressTests.WardrobeViewModelTests testRatingBandFilter]' passed (0.002 seconds).
+Test Suite 'WardrobeViewModelTests' passed at 2026-11-07 21:05:58.877.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.159 (0.160) seconds
+Test Suite 'QuickdressTests.xctest' passed at 2026-11-07 21:05:58.877.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.218 (0.682) seconds
+Test Suite 'All tests' passed at 2026-11-07 21:05:58.877.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.218 (0.727) seconds
+2026-11-07 21:06:03.581467+0200 QuickdressUITests-Runner[84533:23919030] [Default] Running tests...
     t =      nans Interface orientation changed to Portrait
-Test Suite 'All tests' started at 2026-11-07 20:25:15.779.
-Test Suite 'QuickdressUITests.xctest' started at 2026-11-07 20:25:15.780.
-Test Suite 'QuickdressUITests' started at 2026-11-07 20:25:15.780.
+Test Suite 'All tests' started at 2026-11-07 21:06:09.781.
+Test Suite 'QuickdressUITests.xctest' started at 2026-11-07 21:06:09.866.
+Test Suite 'QuickdressUITests' started at 2026-11-07 21:06:09.866.
 Test Case '-[QuickdressUITests.QuickdressUITests testAddAnItemFromAPhoto]' started.
-    t =     0.00s Start Test at 2026-11-07 20:25:15.782
-    t =     0.10s Set Up
-    t =     0.11s Open edu.aucegypt.quickdress
-    t =     0.11s     Launch edu.aucegypt.quickdress
-    t =     1.81s         Setting up automation session
-    t =     3.58s         Wait for edu.aucegypt.quickdress to idle
-    t =     5.35s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
-    t =     6.37s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
-    t =     6.38s         Checking existence of `"Nothing checked in yet" StaticText`
-    t =     6.65s Checking existence of `"Check in your first piece" Button`
-    t =     6.66s Tap "Check in your first piece" Button
-    t =     6.66s     Wait for edu.aucegypt.quickdress to idle
-    t =     6.66s     Find the "Check in your first piece" Button
-    t =     6.69s     Check for interrupting elements affecting "Check in your first piece" Button
-    t =     6.76s     Synthesize event
-    t =     7.06s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.07s Tap "capture.uitest" Button
-    t =     7.07s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.58s     Find the "capture.uitest" Button
-    t =     7.60s     Check for interrupting elements affecting "capture.uitest" Button
-    t =     7.62s     Synthesize event
-    t =     7.91s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.33s Waiting 10.0s for "Save" Button to exist
-    t =     9.36s     Checking `Expect predicate `existsNoRetry == 1` for object "Save" Button`
-    t =     9.36s         Checking existence of `"Save" Button`
-    t =     9.47s Find the "Save" Button
-    t =     9.51s Tap "Outerwear" Button
-    t =     9.51s     Wait for edu.aucegypt.quickdress to idle
-    t =     9.68s     Find the "Outerwear" Button
-    t =     9.74s     Check for interrupting elements affecting "Outerwear" Button
-    t =     9.80s     Synthesize event
-    t =    10.12s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.12s Tap "Navy" Button
-    t =    10.12s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.12s     Find the "Navy" Button
-    t =    10.17s     Check for interrupting elements affecting "Navy" Button
-    t =    10.21s     Synthesize event
-    t =    10.49s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.49s Swipe up Target Application 'edu.aucegypt.quickdress'
-    t =    10.49s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.50s     Find the Target Application 'edu.aucegypt.quickdress'
-    t =    10.54s     Check for interrupting elements affecting "Quickdress" Application
-    t =    10.57s     Synthesize event
-    t =    10.99s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.47s Tap "Winter" Button
-    t =    12.47s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.47s     Find the "Winter" Button
-    t =    12.54s     Check for interrupting elements affecting "Winter" Button
-    t =    12.58s     Synthesize event
+    t =     0.00s Start Test at 2026-11-07 21:06:09.867
+    t =     0.65s Set Up
+    t =     0.71s Open edu.aucegypt.quickdress
+    t =     0.71s     Launch edu.aucegypt.quickdress
+    t =     3.22s         Setting up automation session
+    t =     6.13s         Wait for edu.aucegypt.quickdress to idle
+    t =     8.27s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
+    t =     9.30s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
+    t =     9.30s         Checking existence of `"Nothing checked in yet" StaticText`
+    t =     9.55s Checking existence of `"Check in your first piece" Button`
+    t =     9.56s Tap "Check in your first piece" Button
+    t =     9.56s     Wait for edu.aucegypt.quickdress to idle
+    t =     9.57s     Find the "Check in your first piece" Button
+    t =     9.66s     Check for interrupting elements affecting "Check in your first piece" Button
+    t =     9.75s     Synthesize event
+    t =    10.18s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.41s Tap "capture.uitest" Button
+    t =    10.41s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.93s     Find the "capture.uitest" Button
+    t =    10.97s     Check for interrupting elements affecting "capture.uitest" Button
+    t =    11.00s     Synthesize event
+    t =    11.29s     Wait for edu.aucegypt.quickdress to idle
+    t =    11.70s Waiting 10.0s for "Save" Button to exist
+    t =    12.74s     Checking `Expect predicate `existsNoRetry == 1` for object "Save" Button`
+    t =    12.74s         Checking existence of `"Save" Button`
+    t =    12.83s Find the "Save" Button
+    t =    12.88s Tap "Outerwear" Button
     t =    12.88s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.88s Find the "Save" Button
-    t =    12.93s Tap "Save" Button
-    t =    12.93s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.93s     Find the "Save" Button
-    t =    12.97s     Check for interrupting elements affecting "Save" Button
-    t =    13.01s     Synthesize event
-    t =    13.30s     Wait for edu.aucegypt.quickdress to idle
-    t =    14.28s Waiting 5.0s for "item.1" Button to exist
-    t =    15.31s     Checking `Expect predicate `existsNoRetry == 1` for object "item.1" Button`
-    t =    15.31s         Checking existence of `"item.1" Button`
-    t =    15.38s Tap "item.1" Button
-    t =    15.38s     Wait for edu.aucegypt.quickdress to idle
-    t =    15.38s     Find the "item.1" Button
-    t =    15.41s     Check for interrupting elements affecting "item.1" Button
-    t =    15.44s     Synthesize event
-    t =    15.72s     Wait for edu.aucegypt.quickdress to idle
-    t =    15.85s Waiting 3.0s for "Outerwear" StaticText to exist
-    t =    16.87s     Checking `Expect predicate `existsNoRetry == 1` for object "Outerwear" StaticText`
-    t =    16.87s         Checking existence of `"Outerwear" StaticText`
-    t =    16.98s Checking existence of `"Navy" StaticText`
-    t =    17.01s Checking existence of `"Winter" StaticText`
-    t =    17.04s Tear Down
-Test Case '-[QuickdressUITests.QuickdressUITests testAddAnItemFromAPhoto]' passed (17.369 seconds).
+    t =    13.08s     Find the "Outerwear" Button
+    t =    13.12s     Check for interrupting elements affecting "Outerwear" Button
+    t =    13.16s     Synthesize event
+    t =    13.46s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.46s Tap "Navy" Button
+    t =    13.46s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.46s     Find the "Navy" Button
+    t =    13.52s     Check for interrupting elements affecting "Navy" Button
+    t =    13.58s     Synthesize event
+    t =    13.88s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.88s Swipe up Target Application 'edu.aucegypt.quickdress'
+    t =    13.88s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.88s     Find the Target Application 'edu.aucegypt.quickdress'
+    t =    13.92s     Check for interrupting elements affecting "Quickdress" Application
+    t =    13.96s     Synthesize event
+    t =    14.38s     Wait for edu.aucegypt.quickdress to idle
+    t =    15.54s Tap "Winter" Button
+    t =    15.54s     Wait for edu.aucegypt.quickdress to idle
+    t =    15.54s     Find the "Winter" Button
+    t =    15.62s     Check for interrupting elements affecting "Winter" Button
+    t =    15.67s     Synthesize event
+    t =    15.96s     Wait for edu.aucegypt.quickdress to idle
+    t =    15.97s Find the "Save" Button
+    t =    16.02s Tap "Save" Button
+    t =    16.02s     Wait for edu.aucegypt.quickdress to idle
+    t =    16.02s     Find the "Save" Button
+    t =    16.07s     Check for interrupting elements affecting "Save" Button
+    t =    16.11s     Synthesize event
+    t =    16.41s     Wait for edu.aucegypt.quickdress to idle
+    t =    17.51s Waiting 5.0s for "item.1" Button to exist
+    t =    18.54s     Checking `Expect predicate `existsNoRetry == 1` for object "item.1" Button`
+    t =    18.55s         Checking existence of `"item.1" Button`
+    t =    18.60s Tap "item.1" Button
+    t =    18.60s     Wait for edu.aucegypt.quickdress to idle
+    t =    18.60s     Find the "item.1" Button
+    t =    18.62s     Check for interrupting elements affecting "item.1" Button
+    t =    18.65s     Synthesize event
+    t =    18.94s     Wait for edu.aucegypt.quickdress to idle
+    t =    19.96s Waiting 3.0s for "Outerwear" StaticText to exist
+    t =    21.00s     Checking `Expect predicate `existsNoRetry == 1` for object "Outerwear" StaticText`
+    t =    21.00s         Checking existence of `"Outerwear" StaticText`
+    t =    21.12s Checking existence of `"Navy" StaticText`
+    t =    21.16s Checking existence of `"Winter" StaticText`
+    t =    21.18s Tear Down
+Test Case '-[QuickdressUITests.QuickdressUITests testAddAnItemFromAPhoto]' passed (21.508 seconds).
 Test Case '-[QuickdressUITests.QuickdressUITests testCancellingANewItemKeepsNothing]' started.
-    t =     0.00s Start Test at 2026-11-07 20:25:33.153
-    t =     0.05s Set Up
-    t =     0.05s Open edu.aucegypt.quickdress
-    t =     0.05s     Launch edu.aucegypt.quickdress
-    t =     0.05s         Terminate edu.aucegypt.quickdress:78550
-    t =     1.78s         Setting up automation session
-    t =     5.00s         Wait for edu.aucegypt.quickdress to idle
-    t =     6.83s Tap "Check in your first piece" Button
-    t =     6.83s     Wait for edu.aucegypt.quickdress to idle
-    t =     6.86s     Find the "Check in your first piece" Button
-    t =     7.18s     Check for interrupting elements affecting "Check in your first piece" Button
-    t =     7.28s     Synthesize event
-    t =     7.58s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.09s Tap "capture.uitest" Button
-    t =     8.09s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.09s     Find the "capture.uitest" Button
-    t =     8.13s     Check for interrupting elements affecting "capture.uitest" Button
-    t =     8.15s     Synthesize event
-    t =     8.44s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.87s Waiting 10.0s for "Cancel" Button to exist
-    t =     9.89s     Checking `Expect predicate `existsNoRetry == 1` for object "Cancel" Button`
-    t =     9.90s         Checking existence of `"Cancel" Button`
-    t =     9.97s Tap "Cancel" Button
-    t =     9.97s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.07s     Find the "Cancel" Button
-    t =    10.12s     Check for interrupting elements affecting "Cancel" Button
-    t =    10.16s     Synthesize event
-    t =    10.46s     Wait for edu.aucegypt.quickdress to idle
-    t =    11.26s Tap "Discard" Button
-    t =    11.26s     Wait for edu.aucegypt.quickdress to idle
-    t =    11.26s     Find the "Discard" Button
-    t =    11.34s     Check for interrupting elements affecting "Discard" Button
-    t =    11.38s     Synthesize event
-    t =    11.67s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.02s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
-    t =    13.04s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
-    t =    13.04s         Checking existence of `"Nothing checked in yet" StaticText`
-    t =    13.07s Tear Down
-Test Case '-[QuickdressUITests.QuickdressUITests testCancellingANewItemKeepsNothing]' passed (13.347 seconds).
-Test Case '-[QuickdressUITests.QuickdressUITests testEditThenDeleteAnItem]' started.
-    t =     0.00s Start Test at 2026-11-07 20:25:46.501
-    t =     0.05s Set Up
-    t =     0.06s Open edu.aucegypt.quickdress
-    t =     0.06s     Launch edu.aucegypt.quickdress
-    t =     0.06s         Terminate edu.aucegypt.quickdress:78557
-    t =     1.51s         Setting up automation session
-    t =     3.02s         Wait for edu.aucegypt.quickdress to idle
-    t =     4.46s Checking existence of `"Check in your first piece" Button`
-    t =     4.55s Tap "Check in your first piece" Button
-    t =     4.55s     Wait for edu.aucegypt.quickdress to idle
-    t =     4.56s     Find the "Check in your first piece" Button
-    t =     4.57s     Check for interrupting elements affecting "Check in your first piece" Button
-    t =     4.58s     Synthesize event
-    t =     4.87s     Wait for edu.aucegypt.quickdress to idle
-    t =     5.36s Tap "capture.uitest" Button
-    t =     5.36s     Wait for edu.aucegypt.quickdress to idle
-    t =     5.36s     Find the "capture.uitest" Button
-    t =     5.40s     Check for interrupting elements affecting "capture.uitest" Button
-    t =     5.42s     Synthesize event
-    t =     5.71s     Wait for edu.aucegypt.quickdress to idle
-    t =     6.11s Waiting 10.0s for "Save" Button to exist
-    t =     7.12s     Checking `Expect predicate `existsNoRetry == 1` for object "Save" Button`
-    t =     7.12s         Checking existence of `"Save" Button`
-    t =     7.20s Find the "Save" Button
-    t =     7.24s Tap "Outerwear" Button
-    t =     7.24s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.24s     Find the "Outerwear" Button
-    t =     7.28s     Check for interrupting elements affecting "Outerwear" Button
-    t =     7.31s     Synthesize event
-    t =     7.61s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.61s Tap "Navy" Button
-    t =     7.61s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.61s     Find the "Navy" Button
-    t =     7.67s     Check for interrupting elements affecting "Navy" Button
-    t =     7.71s     Synthesize event
-    t =     8.00s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.00s Swipe up Target Application 'edu.aucegypt.quickdress'
-    t =     8.00s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.01s     Find the Target Application 'edu.aucegypt.quickdress'
-    t =     8.05s     Check for interrupting elements affecting "Quickdress" Application
-    t =     8.08s     Synthesize event
-    t =     8.51s     Wait for edu.aucegypt.quickdress to idle
-    t =     9.99s Tap "Winter" Button
-    t =    10.00s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.00s     Find the "Winter" Button
-    t =    10.06s     Check for interrupting elements affecting "Winter" Button
-    t =    10.10s     Synthesize event
-    t =    10.39s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.40s Find the "Save" Button
-    t =    10.45s Tap "Save" Button
-    t =    10.45s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.45s     Find the "Save" Button
-    t =    10.49s     Check for interrupting elements affecting "Save" Button
-    t =    10.52s     Synthesize event
-    t =    10.82s     Wait for edu.aucegypt.quickdress to idle
-    t =    11.78s Waiting 5.0s for "item.1" Button to exist
-    t =    12.79s     Checking `Expect predicate `existsNoRetry == 1` for object "item.1" Button`
-    t =    12.79s         Checking existence of `"item.1" Button`
-    t =    12.84s Tap "item.1" Button
-    t =    12.84s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.84s     Find the "item.1" Button
-    t =    12.86s     Check for interrupting elements affecting "item.1" Button
-    t =    12.89s     Synthesize event
-    t =    13.17s     Wait for edu.aucegypt.quickdress to idle
-    t =    14.18s Tap "Edit or delete" Button
-    t =    14.18s     Wait for edu.aucegypt.quickdress to idle
-    t =    14.18s     Find the "Edit or delete" Button
-    t =    14.28s     Check for interrupting elements affecting "Edit or delete" Button
-    t =    14.32s     Synthesize event
-    t =    14.61s     Wait for edu.aucegypt.quickdress to idle
-    t =    15.59s Tap "Edit" Button
-    t =    15.59s     Wait for edu.aucegypt.quickdress to idle
-    t =    15.60s     Find the "Edit" Button
-    t =    15.65s     Check for interrupting elements affecting "pencil" Button
-    t =    15.69s     Synthesize event
-    t =    15.98s     Wait for edu.aucegypt.quickdress to idle
-    t =    17.21s Waiting 3.0s for "Edit item" StaticText to exist
-    t =    18.25s     Checking `Expect predicate `existsNoRetry == 1` for object "Edit item" StaticText`
-    t =    18.25s         Checking existence of `"Edit item" StaticText`
-    t =    18.36s Checking existence of `"Retake" Button`
-    t =    18.41s Tap "Top" Button
-    t =    18.41s     Wait for edu.aucegypt.quickdress to idle
-    t =    18.41s     Find the "Top" Button
-    t =    18.47s     Check for interrupting elements affecting "Top" Button
-    t =    18.53s     Synthesize event
-    t =    18.82s     Wait for edu.aucegypt.quickdress to idle
-    t =    18.83s Tap "Save" Button
-    t =    18.83s     Wait for edu.aucegypt.quickdress to idle
-    t =    18.83s     Find the "Save" Button
-    t =    18.90s     Check for interrupting elements affecting "Save" Button
-    t =    18.95s     Synthesize event
-    t =    19.25s     Wait for edu.aucegypt.quickdress to idle
-    t =    20.08s Waiting 3.0s for "Top" StaticText to exist
-    t =    21.10s     Checking `Expect predicate `existsNoRetry == 1` for object "Top" StaticText`
-    t =    21.10s         Checking existence of `"Top" StaticText`
-    t =    21.16s Tap "Edit or delete" Button
-    t =    21.16s     Wait for edu.aucegypt.quickdress to idle
-    t =    21.17s     Find the "Edit or delete" Button
-    t =    21.20s     Check for interrupting elements affecting "Edit or delete" Button
-    t =    21.23s     Synthesize event
-    t =    21.52s     Wait for edu.aucegypt.quickdress to idle
-    t =    22.42s Tap "Delete" Button
-    t =    22.42s     Wait for edu.aucegypt.quickdress to idle
-    t =    22.42s     Find the "Delete" Button
-    t =    22.45s     Check for interrupting elements affecting "trash" Button
-    t =    22.49s     Synthesize event
-    t =    22.77s     Wait for edu.aucegypt.quickdress to idle
-    t =    24.06s Waiting 3.0s for "Delete this piece?" StaticText to exist
-    t =    25.07s     Checking `Expect predicate `existsNoRetry == 1` for object "Delete this piece?" StaticText`
-    t =    25.08s         Checking existence of `"Delete this piece?" StaticText`
-    t =    25.16s Tap "Delete" Button
-    t =    25.16s     Wait for edu.aucegypt.quickdress to idle
-    t =    25.16s     Find the "Delete" Button
-    t =    25.20s     Check for interrupting elements affecting "Delete" Button
-    t =    25.23s     Synthesize event
-    t =    25.52s     Wait for edu.aucegypt.quickdress to idle
-    t =    25.96s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
-    t =    26.99s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
-    t =    27.00s         Checking existence of `"Nothing checked in yet" StaticText`
-    t =    27.03s Tear Down
-Test Case '-[QuickdressUITests.QuickdressUITests testEditThenDeleteAnItem]' passed (27.376 seconds).
-Test Case '-[QuickdressUITests.QuickdressUITests testFilterByCategorySeasonAndWarmth]' started.
-    t =     0.00s Start Test at 2026-11-07 20:26:13.880
+    t =     0.00s Start Test at 2026-11-07 21:06:31.378
     t =     0.06s Set Up
     t =     0.06s Open edu.aucegypt.quickdress
     t =     0.06s     Launch edu.aucegypt.quickdress
-    t =     0.06s         Terminate edu.aucegypt.quickdress:78562
-    t =     1.41s         Setting up automation session
-    t =     3.30s         Wait for edu.aucegypt.quickdress to idle
-    t =     5.34s Waiting 5.0s for "item.9" Button to exist
+    t =     0.06s         Terminate edu.aucegypt.quickdress:84545
+    t =     1.57s         Setting up automation session
+    t =     3.68s         Wait for edu.aucegypt.quickdress to idle
+    t =     5.48s Tap "Check in your first piece" Button
+    t =     5.48s     Wait for edu.aucegypt.quickdress to idle
+    t =     5.48s     Find the "Check in your first piece" Button
+    t =     5.65s     Check for interrupting elements affecting "Check in your first piece" Button
+    t =     5.71s     Synthesize event
+    t =     6.01s     Wait for edu.aucegypt.quickdress to idle
+    t =     6.01s Tap "capture.uitest" Button
+    t =     6.01s     Wait for edu.aucegypt.quickdress to idle
+    t =     6.57s     Find the "capture.uitest" Button
+    t =     6.60s     Check for interrupting elements affecting "capture.uitest" Button
+    t =     6.63s     Synthesize event
+    t =     6.92s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.32s Waiting 10.0s for "Cancel" Button to exist
+    t =     8.36s     Checking `Expect predicate `existsNoRetry == 1` for object "Cancel" Button`
+    t =     8.36s         Checking existence of `"Cancel" Button`
+    t =     8.44s Tap "Cancel" Button
+    t =     8.44s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.58s     Find the "Cancel" Button
+    t =     8.64s     Check for interrupting elements affecting "Cancel" Button
+    t =     8.70s     Synthesize event
+    t =     9.00s     Wait for edu.aucegypt.quickdress to idle
+    t =     9.81s Tap "Discard" Button
+    t =     9.81s     Wait for edu.aucegypt.quickdress to idle
+    t =     9.82s     Find the "Discard" Button
+    t =     9.89s     Check for interrupting elements affecting "Discard" Button
+    t =     9.94s     Synthesize event
+    t =    10.23s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.59s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
+    t =    11.62s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
+    t =    11.63s         Checking existence of `"Nothing checked in yet" StaticText`
+    t =    11.65s Tear Down
+Test Case '-[QuickdressUITests.QuickdressUITests testCancellingANewItemKeepsNothing]' passed (11.962 seconds).
+Test Case '-[QuickdressUITests.QuickdressUITests testEditThenDeleteAnItem]' started.
+    t =     0.00s Start Test at 2026-11-07 21:06:43.342
+    t =     0.07s Set Up
+    t =     0.07s Open edu.aucegypt.quickdress
+    t =     0.07s     Launch edu.aucegypt.quickdress
+    t =     0.07s         Terminate edu.aucegypt.quickdress:84565
+    t =     1.65s         Setting up automation session
+    t =     3.18s         Wait for edu.aucegypt.quickdress to idle
+    t =     4.85s Checking existence of `"Check in your first piece" Button`
+    t =     4.99s Tap "Check in your first piece" Button
+    t =     4.99s     Wait for edu.aucegypt.quickdress to idle
+    t =     4.99s     Find the "Check in your first piece" Button
+    t =     5.00s     Check for interrupting elements affecting "Check in your first piece" Button
+    t =     5.05s     Synthesize event
+    t =     5.35s     Wait for edu.aucegypt.quickdress to idle
+    t =     5.82s Tap "capture.uitest" Button
+    t =     5.82s     Wait for edu.aucegypt.quickdress to idle
+    t =     5.82s     Find the "capture.uitest" Button
+    t =     5.85s     Check for interrupting elements affecting "capture.uitest" Button
+    t =     5.86s     Synthesize event
+    t =     6.15s     Wait for edu.aucegypt.quickdress to idle
+    t =     6.55s Waiting 10.0s for "Save" Button to exist
+    t =     7.58s     Checking `Expect predicate `existsNoRetry == 1` for object "Save" Button`
+    t =     7.59s         Checking existence of `"Save" Button`
+    t =     7.67s Find the "Save" Button
+    t =     7.71s Tap "Outerwear" Button
+    t =     7.71s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.72s     Find the "Outerwear" Button
+    t =     7.76s     Check for interrupting elements affecting "Outerwear" Button
+    t =     7.80s     Synthesize event
+    t =     8.10s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.10s Tap "Navy" Button
+    t =     8.10s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.10s     Find the "Navy" Button
+    t =     8.16s     Check for interrupting elements affecting "Navy" Button
+    t =     8.20s     Synthesize event
+    t =     8.49s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.49s Swipe up Target Application 'edu.aucegypt.quickdress'
+    t =     8.49s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.50s     Find the Target Application 'edu.aucegypt.quickdress'
+    t =     8.54s     Check for interrupting elements affecting "Quickdress" Application
+    t =     8.57s     Synthesize event
+    t =     8.99s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.11s Tap "Winter" Button
+    t =    10.11s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.12s     Find the "Winter" Button
+    t =    10.19s     Check for interrupting elements affecting "Winter" Button
+    t =    10.23s     Synthesize event
+    t =    10.52s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.53s Find the "Save" Button
+    t =    10.58s Tap "Save" Button
+    t =    10.58s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.58s     Find the "Save" Button
+    t =    10.62s     Check for interrupting elements affecting "Save" Button
+    t =    10.66s     Synthesize event
+    t =    10.96s     Wait for edu.aucegypt.quickdress to idle
+    t =    11.97s Waiting 5.0s for "item.1" Button to exist
+    t =    12.99s     Checking `Expect predicate `existsNoRetry == 1` for object "item.1" Button`
+    t =    12.99s         Checking existence of `"item.1" Button`
+    t =    13.04s Tap "item.1" Button
+    t =    13.04s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.04s     Find the "item.1" Button
+    t =    13.07s     Check for interrupting elements affecting "item.1" Button
+    t =    13.09s     Synthesize event
+    t =    13.38s     Wait for edu.aucegypt.quickdress to idle
+    t =    14.37s Tap "Edit or delete" Button
+    t =    14.37s     Wait for edu.aucegypt.quickdress to idle
+    t =    14.38s     Find the "Edit or delete" Button
+    t =    14.48s     Check for interrupting elements affecting "Edit or delete" Button
+    t =    14.53s     Synthesize event
+    t =    14.83s     Wait for edu.aucegypt.quickdress to idle
+    t =    15.83s Tap "Edit" Button
+    t =    15.83s     Wait for edu.aucegypt.quickdress to idle
+    t =    15.83s     Find the "Edit" Button
+    t =    15.90s     Check for interrupting elements affecting "pencil" Button
+    t =    15.93s     Synthesize event
+    t =    16.23s     Wait for edu.aucegypt.quickdress to idle
+    t =    17.44s Waiting 3.0s for "Edit item" StaticText to exist
+    t =    18.47s     Checking `Expect predicate `existsNoRetry == 1` for object "Edit item" StaticText`
+    t =    18.47s         Checking existence of `"Edit item" StaticText`
+    t =    18.58s Checking existence of `"Retake" Button`
+    t =    18.63s Tap "Top" Button
+    t =    18.63s     Wait for edu.aucegypt.quickdress to idle
+    t =    18.63s     Find the "Top" Button
+    t =    18.68s     Check for interrupting elements affecting "Top" Button
+    t =    18.74s     Synthesize event
+    t =    19.03s     Wait for edu.aucegypt.quickdress to idle
+    t =    19.03s Tap "Save" Button
+    t =    19.03s     Wait for edu.aucegypt.quickdress to idle
+    t =    19.04s     Find the "Save" Button
+    t =    19.11s     Check for interrupting elements affecting "Save" Button
+    t =    19.16s     Synthesize event
+    t =    19.46s     Wait for edu.aucegypt.quickdress to idle
+    t =    20.29s Waiting 3.0s for "Top" StaticText to exist
+    t =    21.32s     Checking `Expect predicate `existsNoRetry == 1` for object "Top" StaticText`
+    t =    21.33s         Checking existence of `"Top" StaticText`
+    t =    21.38s Tap "Edit or delete" Button
+    t =    21.38s     Wait for edu.aucegypt.quickdress to idle
+    t =    21.39s     Find the "Edit or delete" Button
+    t =    21.42s     Check for interrupting elements affecting "Edit or delete" Button
+    t =    21.45s     Synthesize event
+    t =    21.75s     Wait for edu.aucegypt.quickdress to idle
+    t =    22.68s Tap "Delete" Button
+    t =    22.68s     Wait for edu.aucegypt.quickdress to idle
+    t =    22.68s     Find the "Delete" Button
+    t =    22.73s     Check for interrupting elements affecting "trash" Button
+    t =    22.76s     Synthesize event
+    t =    23.10s     Wait for edu.aucegypt.quickdress to idle
+    t =    24.74s Waiting 3.0s for "Delete this piece?" StaticText to exist
+    t =    25.77s     Checking `Expect predicate `existsNoRetry == 1` for object "Delete this piece?" StaticText`
+    t =    25.77s         Checking existence of `"Delete this piece?" StaticText`
+    t =    25.86s Tap "Delete" Button
+    t =    25.86s     Wait for edu.aucegypt.quickdress to idle
+    t =    25.86s     Find the "Delete" Button
+    t =    25.90s     Check for interrupting elements affecting "Delete" Button
+    t =    25.95s     Synthesize event
+    t =    26.25s     Wait for edu.aucegypt.quickdress to idle
+    t =    26.72s Waiting 5.0s for "Nothing checked in yet" StaticText to exist
+    t =    27.73s     Checking `Expect predicate `existsNoRetry == 1` for object "Nothing checked in yet" StaticText`
+    t =    27.73s         Checking existence of `"Nothing checked in yet" StaticText`
+    t =    27.76s Tear Down
+Test Case '-[QuickdressUITests.QuickdressUITests testEditThenDeleteAnItem]' passed (28.091 seconds).
+Test Case '-[QuickdressUITests.QuickdressUITests testFilterByCategorySeasonAndWarmth]' started.
+    t =     0.00s Start Test at 2026-11-07 21:07:11.435
+    t =     0.06s Set Up
+    t =     0.07s Open edu.aucegypt.quickdress
+    t =     0.07s     Launch edu.aucegypt.quickdress
+    t =     0.07s         Terminate edu.aucegypt.quickdress:84570
+    t =     1.62s         Setting up automation session
+    t =     3.24s         Wait for edu.aucegypt.quickdress to idle
+    t =     5.38s Waiting 5.0s for "item.9" Button to exist
     t =     6.42s     Checking `Expect predicate `existsNoRetry == 1` for object "item.9" Button`
     t =     6.42s         Checking existence of `"item.9" Button`
-    t =     6.71s Tap "Shoes" Button
-    t =     6.72s     Wait for edu.aucegypt.quickdress to idle
-    t =     6.72s     Find the "Shoes" Button
-    t =     6.77s     Check for interrupting elements affecting "Shoes" Button
-    t =     6.93s     Synthesize event
-    t =     7.25s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.26s Checking existence of `"item.7" Button`
-    t =     7.30s Checking existence of `"item.1" Button`
-    t =     7.32s Tap "All" Button
-    t =     7.32s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.32s     Find the "All" Button
+    t =     6.59s Tap "Shoes" Button
+    t =     6.60s     Wait for edu.aucegypt.quickdress to idle
+    t =     6.60s     Find the "Shoes" Button
+    t =     6.64s     Check for interrupting elements affecting "Shoes" Button
+    t =     6.69s     Synthesize event
+    t =     7.01s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.04s Checking existence of `"item.7" Button`
+    t =     7.08s Checking existence of `"item.1" Button`
+    t =     7.14s Tap "All" Button
+    t =     7.14s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.16s     Find the "All" Button
     t =     7.35s     Check for interrupting elements affecting "All" Button
-    t =     7.39s     Synthesize event
-    t =     7.68s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.68s Tap "Filter by season, warmth, formality and comfort" Button
-    t =     7.68s     Wait for edu.aucegypt.quickdress to idle
-    t =     7.69s     Find the "Filter by season, warmth, formality and comfort" Button
-    t =     7.72s     Check for interrupting elements affecting "line.3.horizontal.decrease.circle" Button
-    t =     7.75s     Synthesize event
-    t =     8.05s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.87s Tap "Winter" Button
-    t =     8.87s     Wait for edu.aucegypt.quickdress to idle
-    t =     8.87s     Find the "Winter" Button
-    t =     8.95s     Check for interrupting elements affecting "Winter" Button
-    t =     9.00s     Synthesize event
-    t =     9.29s     Wait for edu.aucegypt.quickdress to idle
-    t =     9.30s Waiting 3.0s for "Show 4 pieces" Button to exist
-    t =    10.32s     Checking `Expect predicate `existsNoRetry == 1` for object "Show 4 pieces" Button`
-    t =    10.32s         Checking existence of `"Show 4 pieces" Button`
-    t =    10.38s Tap "Warmth: High, 4-5" Button
-    t =    10.38s     Wait for edu.aucegypt.quickdress to idle
-    t =    10.38s     Find the "Warmth: High, 4-5" Button
-    t =    10.42s     Check for interrupting elements affecting "Warmth: High, 4-5" Button
-    t =    10.46s     Synthesize event
+    t =     7.42s     Synthesize event
+    t =     7.72s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.73s Tap "Filter by season, warmth, formality and comfort" Button
+    t =     7.73s     Wait for edu.aucegypt.quickdress to idle
+    t =     7.73s     Find the "Filter by season, warmth, formality and comfort" Button
+    t =     7.77s     Check for interrupting elements affecting "line.3.horizontal.decrease.circle" Button
+    t =     7.80s     Synthesize event
+    t =     8.10s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.86s Tap "Winter" Button
+    t =     8.86s     Wait for edu.aucegypt.quickdress to idle
+    t =     8.86s     Find the "Winter" Button
+    t =     8.93s     Check for interrupting elements affecting "Winter" Button
+    t =     8.97s     Synthesize event
+    t =     9.27s     Wait for edu.aucegypt.quickdress to idle
+    t =     9.27s Waiting 3.0s for "Show 4 pieces" Button to exist
+    t =    10.29s     Checking `Expect predicate `existsNoRetry == 1` for object "Show 4 pieces" Button`
+    t =    10.29s         Checking existence of `"Show 4 pieces" Button`
+    t =    10.37s Tap "Warmth: High, 4-5" Button
+    t =    10.37s     Wait for edu.aucegypt.quickdress to idle
+    t =    10.37s     Find the "Warmth: High, 4-5" Button
+    t =    10.41s     Check for interrupting elements affecting "Warmth: High, 4-5" Button
+    t =    10.45s     Synthesize event
     t =    10.74s     Wait for edu.aucegypt.quickdress to idle
     t =    10.75s Checking existence of `"Show 1 piece" Button`
     t =    10.81s Tap "Show 1 piece" Button
     t =    10.81s     Wait for edu.aucegypt.quickdress to idle
     t =    10.81s     Find the "Show 1 piece" Button
-    t =    10.85s     Check for interrupting elements affecting "Show 1 piece" Button
-    t =    10.89s     Synthesize event
-    t =    11.18s     Wait for edu.aucegypt.quickdress to idle
-    t =    11.54s Waiting 3.0s for "item.6" Button to exist
-    t =    12.56s     Checking `Expect predicate `existsNoRetry == 1` for object "item.6" Button`
-    t =    12.56s         Checking existence of `"item.6" Button`
-    t =    12.61s Checking existence of `"item.2" Button`
-    t =    12.64s Tap "Remove filter: Warmth High" Button
-    t =    12.64s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.64s     Find the "Remove filter: Warmth High" Button
-    t =    12.67s     Check for interrupting elements affecting "Remove filter: Warmth High" Button
-    t =    12.69s     Synthesize event
-    t =    12.98s     Wait for edu.aucegypt.quickdress to idle
-    t =    12.99s Waiting 3.0s for "item.2" Button to exist
-    t =    14.00s     Checking `Expect predicate `existsNoRetry == 1` for object "item.2" Button`
-    t =    14.00s         Checking existence of `"item.2" Button`
-    t =    14.06s Tear Down
-Test Case '-[QuickdressUITests.QuickdressUITests testFilterByCategorySeasonAndWarmth]' passed (14.408 seconds).
-Test Suite 'QuickdressUITests' passed at 2026-11-07 20:26:28.288.
-	 Executed 4 tests, with 0 failures (0 unexpected) in 72.499 (72.508) seconds
-Test Suite 'QuickdressUITests.xctest' passed at 2026-11-07 20:26:28.292.
-	 Executed 4 tests, with 0 failures (0 unexpected) in 72.499 (72.512) seconds
-Test Suite 'All tests' passed at 2026-11-07 20:26:28.294.
-	 Executed 4 tests, with 0 failures (0 unexpected) in 72.499 (72.515) seconds
+    t =    10.86s     Check for interrupting elements affecting "Show 1 piece" Button
+    t =    10.90s     Synthesize event
+    t =    11.19s     Wait for edu.aucegypt.quickdress to idle
+    t =    11.58s Waiting 3.0s for "item.6" Button to exist
+    t =    12.59s     Checking `Expect predicate `existsNoRetry == 1` for object "item.6" Button`
+    t =    12.60s         Checking existence of `"item.6" Button`
+    t =    12.65s Checking existence of `"item.2" Button`
+    t =    12.68s Tap "Remove filter: Warmth High" Button
+    t =    12.68s     Wait for edu.aucegypt.quickdress to idle
+    t =    12.68s     Find the "Remove filter: Warmth High" Button
+    t =    12.70s     Check for interrupting elements affecting "Remove filter: Warmth High" Button
+    t =    12.73s     Synthesize event
+    t =    13.02s     Wait for edu.aucegypt.quickdress to idle
+    t =    13.03s Waiting 3.0s for "item.2" Button to exist
+    t =    14.05s     Checking `Expect predicate `existsNoRetry == 1` for object "item.2" Button`
+    t =    14.05s         Checking existence of `"item.2" Button`
+    t =    14.11s Tear Down
+Test Case '-[QuickdressUITests.QuickdressUITests testFilterByCategorySeasonAndWarmth]' passed (14.392 seconds).
+Test Suite 'QuickdressUITests' passed at 2026-11-07 21:07:25.829.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 75.952 (75.962) seconds
+Test Suite 'QuickdressUITests.xctest' passed at 2026-11-07 21:07:25.833.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 75.952 (75.967) seconds
+Test Suite 'All tests' passed at 2026-11-07 21:07:25.834.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 75.952 (76.053) seconds
+2026-11-07 21:07:26.539 xcodebuild[84450:23917190] [MT] IDETestOperationsObserverDebug: 110.582 elapsed -- Testing started completed.
+2026-11-07 21:07:26.539 xcodebuild[84450:23917190] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-07 21:07:26.539 xcodebuild[84450:23917190] [MT] IDETestOperationsObserverDebug: 110.582 sec, +110.582 sec -- end
 
 Test session results, code coverage, and logs:
-	/Users/marwanosama/Software engineering/Quickdress-team/build/Logs/Test/Test-Quickdress-2026.11.07_20-24-54-+0200.xcresult
+	/Users/marwanosama/Software engineering/Quickdress-team/build/Logs/Test/Test-Quickdress-2026.11.07_21-05-27-+0200.xcresult
 
 ** TEST SUCCEEDED **
 
