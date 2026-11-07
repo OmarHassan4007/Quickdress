@@ -2,28 +2,28 @@ import SwiftUI
 import UIKit
 import QuickdressCore
 
-/// One garment with its receipt (read/write operations included).
+/// One garment with its receipt, and a menu to edit or delete it.
 struct ItemDetailView: View {
-    let item: ClothingItem
-    let photo: Data?
-    let manager: WardrobeManager
-    let onDelete: (() -> Void)?
+    /// The item as it was when the page opened. The page shows the wardrobe's current copy,
+    /// so an edit shows up here as soon as it is saved.
+    let opened: ClothingItem
+    let wardrobe: WardrobeViewModel
 
     @Environment(\.dismiss) private var dismiss
     @State private var editingModel: CheckInViewModel?
     @State private var confirmDelete = false
+    @State private var deleteFailed = false
 
-    init(
-        item: ClothingItem,
-        photo: Data?,
-        manager: WardrobeManager,
-        onDelete: (() -> Void)? = nil
-    ) {
-        self.item = item
-        self.photo = photo
-        self.manager = manager
-        self.onDelete = onDelete
+    init(item: ClothingItem, wardrobe: WardrobeViewModel) {
+        self.opened = item
+        self.wardrobe = wardrobe
     }
+
+    private var item: ClothingItem {
+        wardrobe.items.first { $0.id == opened.id } ?? opened
+    }
+
+    private var photo: Data? { wardrobe.photo(for: item) }
 
     var body: some View {
         ScrollView {
@@ -80,11 +80,10 @@ struct ItemDetailView: View {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button {
-                        editingModel = CheckInViewModel(item: item, manager: manager)
+                        editingModel = CheckInViewModel(item: item, manager: wardrobe.manager)
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }
-                    
                     Button(role: .destructive) {
                         confirmDelete = true
                     } label: {
@@ -95,6 +94,7 @@ struct ItemDetailView: View {
                         .font(.system(size: 20))
                         .foregroundStyle(Theme.ink)
                 }
+                .accessibilityLabel("Edit or delete")
             }
         }
         .sheet(item: $editingModel) { model in
@@ -116,6 +116,11 @@ struct ItemDetailView: View {
         } message: {
             Text("This action cannot be undone.")
         }
+        .alert("Couldn't delete this piece", isPresented: $deleteFailed) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("It is still in your wardrobe. Try again.")
+        }
     }
 
     private func levelLine(_ name: String, _ value: Int) -> some View {
@@ -133,11 +138,11 @@ struct ItemDetailView: View {
     }
 
     private func deleteItem() {
-        if let onDelete {
-            onDelete()
-        } else {
-            try? manager.deleteItem(item)
+        do {
+            try wardrobe.manager.delete(item)
+            dismiss()
+        } catch {
+            deleteFailed = true
         }
-        dismiss()
     }
 }
