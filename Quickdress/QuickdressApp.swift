@@ -12,20 +12,31 @@ struct QuickdressApp: App {
         Theme.registerFonts()
         let bus = EventBus()
         do {
-            let items = try SwiftDataItemStore(container: SwiftDataItemStore.makeContainer())
-            let photos = try FilePhotoStore()
+            var inMemory = false
+            var sources: [any ImageSource] = [CameraSource(), PhotoLibrarySource()]
+            var photoDirectory: URL?
+            #if DEBUG
+            if UITestSupport.isUITesting {
+                inMemory = true
+                sources = [UITestPhotoSource()]
+                photoDirectory = FileManager.default.temporaryDirectory
+                    .appendingPathComponent("UITestPhotos-\(UUID().uuidString)")
+            }
+            #endif
+            let items = try SwiftDataItemStore(container: SwiftDataItemStore.makeContainer(inMemory: inMemory))
+            let photos = try FilePhotoStore(directory: photoDirectory)
             let manager = WardrobeManager(items: items, photos: photos, bus: bus)
             #if DEBUG
             if ProcessInfo.processInfo.arguments.contains("-sampleWardrobe") {
                 SampleWardrobe.addIfEmpty(to: manager)
             }
+            if let path = UserDefaults.standard.string(forKey: "demoPhotos") {
+                SampleWardrobe.addDemoIfEmpty(from: URL(fileURLWithPath: path), to: manager)
+            }
             #endif
             try? manager.numberUnnumberedItems()
             _wardrobe = State(initialValue: WardrobeViewModel(manager: manager, bus: bus))
-            _addItem = State(initialValue: AddItemFlow(
-                sources: [CameraSource(), PhotoLibrarySource()],
-                manager: manager
-            ))
+            _addItem = State(initialValue: AddItemFlow(sources: sources, manager: manager))
         } catch {
             fatalError("Quickdress could not open its storage: \(error)")
         }

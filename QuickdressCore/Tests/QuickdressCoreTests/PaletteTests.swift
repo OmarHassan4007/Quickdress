@@ -28,4 +28,17 @@ final class PaletteTests: XCTestCase {
         XCTAssertEqual(RGB(hex: "1e2a4c")?.hex, "#1E2A4C")
         XCTAssertNil(RGB(hex: "#12345"))
     }
+
+    func testGarmentPhotoColoursFromSprint1Testing() {
+        // Colours the analyzer measured on real garment photos during Sprint 1 testing.
+        // Before the second reference points these came out grey, grey and black.
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#435D76")!), .blue, "Faded denim jeans")
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#AD9980")!), .beige, "Khaki chinos")
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#163022")!), .green, "Dark green beanie")
+        // Neighbours that must not move.
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#272B38")!), .navy, "Navy overshirt")
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#4B4B4C")!), .grey, "Grey wool coat")
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#232222")!), .black, "Black loafers")
+        XCTAssertEqual(Palette.nearest(to: RGB(hex: "#D8DBDC")!), .white, "White sneakers")
+    }
 }
