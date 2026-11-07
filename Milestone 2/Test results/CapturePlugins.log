@@ -1,0 +1,45 @@
+Building for debugging...
+[0/2] Write swift-version--58304C5D6DBC2206.txt
+[1/3] Write sources
+[3/5] Compiling QuickdressCore WardrobeFilter.swift
+[4/5] Emitting module QuickdressCore
+[5/7] Emitting module CapturePlugins
+[6/7] Compiling CapturePlugins ItemAnalyzer.swift
+[7/10] Compiling CapturePluginsTests CapturePluginsTests.swift
+[8/10] Emitting module CapturePluginsTests
+[8/10] Write Objects.LinkFileList
+[9/10] Linking CapturePluginsPackageTests
+Build complete! (1.94s)
+Test Suite 'All tests' started at 2026-11-07 20:24:44.574.
+Test Suite 'CapturePluginsPackageTests.xctest' started at 2026-11-07 20:24:44.575.
+Test Suite 'ImageScalerTests' started at 2026-11-07 20:24:44.575.
+Test Case '-[CapturePluginsTests.ImageScalerTests testDataThatIsNotAnImageGivesNothing]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testDataThatIsNotAnImageGivesNothing]' passed (0.015 seconds).
+Test Case '-[CapturePluginsTests.ImageScalerTests testJPEGOutputIsJPEG]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testJPEGOutputIsJPEG]' passed (0.022 seconds).
+Test Case '-[CapturePluginsTests.ImageScalerTests testLargePhotosAreScaledToTheLongestSideLimit]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testLargePhotosAreScaledToTheLongestSideLimit]' passed (0.124 seconds).
+Test Suite 'ImageScalerTests' passed at 2026-11-07 20:24:44.737.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.162 (0.162) seconds
+Test Suite 'ItemAnalyzerTests' started at 2026-11-07 20:24:44.737.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testSeasonsFollowWarmth]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testSeasonsFollowWarmth]' passed (0.001 seconds).
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheColourOfAPlainImageIsMeasured]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheColourOfAPlainImageIsMeasured]' passed (0.025 seconds).
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheOvershirtIsSuggestedAsNavyOuterwear]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheOvershirtIsSuggestedAsNavyOuterwear]' passed (5.045 seconds).
+Test Suite 'ItemAnalyzerTests' passed at 2026-11-07 20:24:49.807.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 5.070 (5.070) seconds
+Test Suite 'SubjectLifterTests' started at 2026-11-07 20:24:49.807.
+Test Case '-[CapturePluginsTests.SubjectLifterTests testAGarmentPhotographedOnABedIsCutOut]' started.
+Test Case '-[CapturePluginsTests.SubjectLifterTests testAGarmentPhotographedOnABedIsCutOut]' passed (0.051 seconds).
+Test Suite 'SubjectLifterTests' passed at 2026-11-07 20:24:49.859.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.051 (0.051) seconds
+Test Suite 'CapturePluginsPackageTests.xctest' passed at 2026-11-07 20:24:49.859.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 5.283 (5.284) seconds
+Test Suite 'All tests' passed at 2026-11-07 20:24:49.859.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 5.283 (5.285) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
