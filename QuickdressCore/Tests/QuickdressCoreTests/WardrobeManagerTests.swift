@@ -101,4 +101,38 @@ final class WardrobeManagerTests: XCTestCase {
         XCTAssertTrue(subject.photos.photos.isEmpty)
         XCTAssertEqual(subject.log.events.last, .itemDeleted(id: saved.id))
     }
+
+    func testNewItemsGetTheNextTagNumber() throws {
+        let subject = makeSubject()
+
+        let first = try subject.manager.addItem(.sample(.top), photo: photoData)
+        let second = try subject.manager.addItem(.sample(.bottom), photo: photoData)
+
+        XCTAssertEqual(first.number, 1)
+        XCTAssertEqual(second.number, 2)
+        XCTAssertEqual(try subject.manager.nextNumber(), 3)
+        XCTAssertEqual(subject.items.stored.map(\.number), [1, 2])
+    }
+
+    func testAnItemThatAlreadyHasANumberKeepsIt() throws {
+        let subject = makeSubject()
+        var item = ClothingItem.sample()
+        item.number = 32
+
+        let saved = try subject.manager.addItem(item, photo: photoData)
+
+        XCTAssertEqual(saved.number, 32)
+        XCTAssertEqual(try subject.manager.nextNumber(), 33)
+    }
+
+    func testUnnumberedItemsAreNumberedAfterTheHighestNumber() throws {
+        let subject = makeSubject()
+        var numbered = ClothingItem.sample(.shoes)
+        numbered.number = 5
+        subject.items.stored = [.sample(.top), numbered, .sample(.bottom)]
+
+        try subject.manager.numberUnnumberedItems()
+
+        XCTAssertEqual(subject.items.stored.map(\.number), [6, 5, 7])
+    }
 }

@@ -8,6 +8,8 @@ packages:
     path: QuickdressCore
   StoragePlugins:
     path: StoragePlugins
+  CapturePlugins:
+    path: CapturePlugins
 targets:
   Quickdress:
     type: application
@@ -17,6 +19,7 @@ targets:
     dependencies:
       - package: QuickdressCore
       - package: StoragePlugins
+      - package: CapturePlugins
     scheme: {}
     settings:
       base:
@@ -24,6 +27,7 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: Quickdress
+        INFOPLIST_KEY_NSCameraUsageDescription: "Quickdress uses the camera to photograph your clothes. Photos stay on this iPhone."
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "5.0"

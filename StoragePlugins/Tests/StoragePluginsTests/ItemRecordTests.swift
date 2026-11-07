@@ -16,7 +16,7 @@ final class ItemRecordTests: XCTestCase {
 
     private let shirt = ClothingItem(
         category: .top, colour: .white, warmth: 2, formality: 4, comfort: 3,
-        seasons: [.summer, .spring], photo: "shirt.jpg"
+        seasons: [.summer, .spring], photo: "shirt.jpg", number: 14, exactColour: "#F4F1EA"
     )
 
     func testRecordRoundTripsToTheSameItem() throws {

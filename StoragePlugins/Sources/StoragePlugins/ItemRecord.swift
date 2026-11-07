@@ -12,6 +12,8 @@ final class ItemRecord {
     var comfort: Int
     var seasonsRaw: [String]
     var photo: String
+    var number: Int = 0
+    var exactColourHex: String?
     var createdAt: Date
 
     init(_ item: ClothingItem, createdAt: Date = .now) {
@@ -23,6 +25,8 @@ final class ItemRecord {
         self.comfort = item.comfort
         self.seasonsRaw = item.seasons.map(\.rawValue).sorted()
         self.photo = item.photo
+        self.number = item.number
+        self.exactColourHex = item.exactColour
         self.createdAt = createdAt
     }
 
@@ -35,6 +39,8 @@ final class ItemRecord {
         comfort = item.comfort
         seasonsRaw = item.seasons.map(\.rawValue).sorted()
         photo = item.photo
+        number = item.number
+        exactColourHex = item.exactColour
     }
 
     func toDomain() throws -> ClothingItem {
@@ -59,7 +65,9 @@ final class ItemRecord {
             formality: formality,
             comfort: comfort,
             seasons: seasons,
-            photo: photo
+            photo: photo,
+            number: number,
+            exactColour: exactColourHex
         )
     }
 }

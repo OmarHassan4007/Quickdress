@@ -17,6 +17,9 @@ jobs:
       - name: Test StoragePlugins
         run: swift test --package-path StoragePlugins
 
+      - name: Test CapturePlugins
+        run: swift test --package-path CapturePlugins
+
       - name: Generate the Xcode project
         run: |
           brew install xcodegen
