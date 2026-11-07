@@ -2,10 +2,28 @@ import SwiftUI
 import UIKit
 import QuickdressCore
 
-/// One garment with its receipt (read only).
+/// One garment with its receipt (read/write operations included).
 struct ItemDetailView: View {
     let item: ClothingItem
     let photo: Data?
+    let manager: WardrobeManager
+    let onDelete: (() -> Void)?
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var editingModel: CheckInViewModel?
+    @State private var confirmDelete = false
+
+    init(
+        item: ClothingItem,
+        photo: Data?,
+        manager: WardrobeManager,
+        onDelete: (() -> Void)? = nil
+    ) {
+        self.item = item
+        self.photo = photo
+        self.manager = manager
+        self.onDelete = onDelete
+    }
 
     var body: some View {
         ScrollView {
@@ -59,6 +77,44 @@ struct ItemDetailView: View {
                     .font(.statement(29, relativeTo: .headline))
                     .foregroundStyle(Theme.ink)
             }
+            ToolbarItem(placement: .primaryAction) {
+                Menu {
+                    Button {
+                        editingModel = CheckInViewModel(item: item, manager: manager)
+                    } label: {
+                        Label("Edit", systemImage: "pencil")
+                    }
+                    
+                    Button(role: .destructive) {
+                        confirmDelete = true
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 20))
+                        .foregroundStyle(Theme.ink)
+                }
+            }
+        }
+        .sheet(item: $editingModel) { model in
+            CheckInView(
+                model: model,
+                onRetake: nil,
+                onFinish: { editingModel = nil }
+            )
+        }
+        .confirmationDialog(
+            "Delete this piece?",
+            isPresented: $confirmDelete,
+            titleVisibility: .visible
+        ) {
+            Button("Delete", role: .destructive) {
+                deleteItem()
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This action cannot be undone.")
         }
     }
 
@@ -74,5 +130,14 @@ struct ItemDetailView: View {
             .filter { item.seasons.contains($0) }
             .map(\.displayName)
             .joined(separator: ", ")
+    }
+
+    private func deleteItem() {
+        if let onDelete {
+            onDelete()
+        } else {
+            try? manager.deleteItem(item)
+        }
+        dismiss()
     }
 }
