@@ -129,6 +129,23 @@ body { font-family: var(--mono); color: var(--ink); -webkit-font-smoothing: anti
 .slip.notes li + li { margin-top: 30px; }
 .slip.notes li::before { content: ""; position: absolute; left: 0; top: 13px; width: 24px; height: 24px; border: 4px solid var(--ink); }
 .slip.notes .done li::before { background: var(--ink); }
+
+/* High-level design slide: the whole microkernel */
+.mk { position: absolute; left: 3.4%; right: 3.4%; top: 23.6%; display: grid; gap: 22px; }
+.mk-band { position: relative; border: 4px solid var(--ink); background: #FCFBF8; padding: 74px 22px 20px; }
+.mk-band > .bname { position: absolute; left: 22px; top: 10px; font-family: var(--display); font-size: 42px; }
+.mk-band > .bname small { font-family: var(--mono); font-size: 30px; margin-left: 18px; }
+.mk-row { display: flex; gap: 18px; }
+.mk-row + .mk-row { margin-top: 16px; }
+.mk-c { position: relative; flex: 1; border: 3px solid var(--ink); background: #fff; padding: 12px 16px 14px; font-size: 28px; line-height: 1.25; }
+.mk-c b { display: block; font-family: var(--display); font-size: 36px; line-height: 1.05; margin-bottom: 4px; padding-right: 64px; }
+.mk-c.plan { border-style: dashed; background: transparent; }
+.mk-c .s1 { position: absolute; right: 10px; top: 10px; padding: 0 10px 2px; background: var(--top); border: 3px solid var(--ink); font-weight: 500; font-size: 24px; }
+.mk-if { flex: 1; text-align: center; border: 3px solid var(--ink); background: #EEF5FC; padding: 8px 6px 10px; font-family: var(--display); font-size: 32px; position: relative; }
+.mk-if i { display: block; font-family: var(--mono); font-style: normal; font-size: 22px; }
+.mk-if.plan { border-style: dashed; background: transparent; }
+.mk-if .s1 { position: absolute; right: 6px; top: 6px; padding: 0 8px 1px; background: var(--top); border: 3px solid var(--ink); font-family: var(--mono); font-weight: 500; font-size: 20px; }
+
 /* Slide-native UML: the Sprint 1 part of each diagram, set large enough to read from the back of a room. */
 .uml-bands { position: absolute; left: 3.4%; right: 3.4%; top: 24.2%; bottom: 10.4%; display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 34px; }
 .uml-band { position: relative; border: 4px solid var(--ink); background: #FCFBF8; padding: 74px 26px 24px; display: flex; gap: 24px; align-items: stretch; }
@@ -330,9 +347,29 @@ body { font-family: var(--mono); color: var(--ink); -webkit-font-smoothing: anti
   </div>
 </section>
 
+<!-- 8b. The high-level design: the whole microkernel -->
+<section class="slide" id="s8b" aria-label="High-level design, microkernel">
+  <h2 class="abs display head">The high-level design: a microkernel</h2>
+  <p class="abs kicker-line">ARCHITECTURE   DESIGN SPEC 1.1 AND 1.2</p>
+  <div class="abs dash rule-top"></div>
+  <div class="mk">
+    <div class="mk-band"><span class="bname">Host app<small>SwiftUI screens (MVVM) and the composition root</small></span>
+      <div class="mk-row"><div class="mk-c"><span class="s1">S1</span><b>Wardrobe and item screens</b>Grid, detail, New item</div><div class="mk-c plan"><b>Today screen</b>The day's outfit</div><div class="mk-c plan"><b>Filters, Settings</b>Filters, AI consent</div><div class="mk-c"><span class="s1">S1</span><b>QuickdressApp</b>Creates and registers every plug-in</div></div>
+    </div>
+    <div class="mk-band"><span class="bname">Core system, the kernel<small>QuickdressCore, Foundation only</small></span>
+      <div class="mk-row"><div class="mk-c"><span class="s1">S1</span><b>WardrobeManager</b>Validates and saves items</div><div class="mk-c"><span class="s1">S1</span><b>EventBus</b>Publish and subscribe</div><div class="mk-c plan"><b>PluginRegistry</b>Picks plug-ins by priority</div><div class="mk-c plan"><b>ContextBuilder</b>Weather and calendar</div><div class="mk-c plan"><b>OutfitEngine</b>Filter pipeline, then recommenders</div><div class="mk-c plan"><b>SettingsManager</b>Filters, AI consent</div></div>
+      <div class="mk-row"><div class="mk-if"><span class="s1">S1</span><i>«interface»</i>ImageSource</div><div class="mk-if"><span class="s1">S1</span><i>«interface»</i>ItemStore</div><div class="mk-if"><span class="s1">S1</span><i>«interface»</i>PhotoStore</div><div class="mk-if plan"><i>«interface»</i>PreferencesStore</div><div class="mk-if plan"><i>«interface»</i>ContextSource</div><div class="mk-if plan"><i>«interface»</i>OutfitFilter</div><div class="mk-if plan"><i>«interface»</i>Recommender</div></div>
+    </div>
+    <div class="mk-band"><span class="bname">Plug-ins<small>each realises one contract and never calls another plug-in</small></span>
+      <div class="mk-row"><div class="mk-c"><span class="s1">S1</span><b>Capture</b>Camera, photo library</div><div class="mk-c"><span class="s1">S1</span><b>Storage</b>SwiftData, photo files</div><div class="mk-c plan"><b>Context</b>WeatherKit, Open-Meteo, calendar</div><div class="mk-c plan"><b>Filters</b>Season, weather, formality, transport</div><div class="mk-c plan"><b>Recommenders</b>Rule-based; Gemini opt-in</div></div>
+    </div>
+  </div>
+  <p class="abs" style="left:3.4%; right:3.4%; top:87.4%; font-size:32px; line-height:1.32;">The registry chooses plug-ins at run time by priority and availability, so one can be added or swapped without changing the core or any screen (NFR-08). <span style="background:var(--top); border:3px solid var(--ink); padding:0 8px; font-weight:500;">S1</span> built in Sprint 1; dashed boxes are planned.</p>
+</section>
+
 <!-- 9. Architecture -->
 <section class="slide" id="s9" aria-label="Architecture changes">
-  <h2 class="abs display head">What changed in the workshop</h2>
+  <h2 class="abs display head">What Sprint 1 built of it</h2>
   <p class="abs kicker-line">COMPONENT DIAGRAM, SPRINT 1 PART   FULL: DESIGN SPEC 7.1</p>
   <div class="abs dash rule-top"></div>
   <div class="uml-bands">
