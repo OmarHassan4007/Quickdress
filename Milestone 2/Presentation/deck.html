@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quickdress Sprint 1</title>
+<style>
+@font-face { font-family: "Pragati Narrow"; src: url("assets/fonts/PragatiNarrow-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Chivo Mono"; src: url("assets/fonts/ChivoMono-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Chivo Mono"; src: url("assets/fonts/ChivoMono-Medium.ttf"); font-weight: 500; }
+
+:root {
+  --ground: #F3F1EC;
+  --paper: #FCFBF8;
+  --ink: #141414;
+  --ink-2: #57534C;
+  --rule: #141414;
+  --stamp: #C2185B;
+  --top: #BDE8D2; --bottom: #F7B9C8; --outer: #BFD9F2; --shoes: #D9C6F0; --acc: #F9C9A6;
+  --string: #B59E70;
+  --display: "Pragati Narrow", "Arial Narrow", sans-serif;
+  --mono: "Chivo Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+::selection { background: var(--top); color: var(--ink); }
+html, body { background: #2a2826; }
+body { font-family: var(--mono); color: var(--ink); -webkit-font-smoothing: antialiased; font-variant-ligatures: none; }
+
+/* One slide is one sheet of the order's paperwork, 2688 x 1520 design pixels. */
+.deck { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 0 40px; }
+.slide {
+  position: relative; width: 2688px; height: 1520px; overflow: hidden; flex: none;
+  background: var(--ground) url("assets/plates/sheet.jpg") center / cover no-repeat; transform-origin: top center;
+}
+
+.display { font-family: var(--display); font-weight: 700; letter-spacing: -0.005em; line-height: 0.9; }
+.mono { font-family: var(--mono); }
+.abs { position: absolute; }
+
+/* ---------- Slide 1: the order form ---------- */
+.s1-title { left: 4.69%; top: 6.6%; font-size: 156px; white-space: nowrap; }
+.s1-order { left: 5.36%; top: 19.8%; font-size: 55px; font-weight: 500; letter-spacing: 0.04em; white-space: pre; }
+.dash { height: 4px; background: repeating-linear-gradient(90deg, var(--ink) 0 22px, transparent 22px 36px); }
+.s1-rule { left: 3.4%; top: 25.9%; width: 63.8%; }
+
+.form {
+  position: absolute; left: 3.4%; top: 30%; width: 63%; height: 57.2%;
+  border: 4px solid var(--rule); border-collapse: collapse; table-layout: fixed;
+  font-family: var(--mono); font-size: 45px; line-height: 1.18;
+}
+.form th, .form td { border: 4px solid var(--rule); text-align: left; vertical-align: middle; padding: 0 26px; }
+.form th { font-weight: 500; font-size: 51px; letter-spacing: 0.03em; height: 104px; }
+#s1 .form tbody tr { height: 148px; }
+.form td.status { position: relative; }
+.form td.status img { position: absolute; left: 50%; top: 50%; width: 72%; height: auto; transform: translate(-50%, -52%); }
+.form td.stamped { position: relative; }
+.form td.stamped img { position: absolute; left: 50%; top: 50%; height: 80%; width: auto; transform: translate(-50%, -50%); }
+.backlog-note { left: 3.4%; top: 88.6%; font-size: 36px; font-weight: 500; letter-spacing: 0.03em; }
+
+.garment { left: 65.5%; top: 22%; width: 34%; height: 59%; object-fit: contain; }
+.tag {
+  position: absolute; left: 84%; top: 42.4%; width: 12.6%; height: 9.4%;
+  display: grid; place-items: center; transform: rotate(-15deg) translate(-4%, 4%); transform-origin: 20% 50%;
+}
+.tag-shape { position: absolute; inset: 0; background: var(--outer); clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 30%);
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,.18)); }
+.tag-hole { position: absolute; left: 5%; top: 44%; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); }
+.tag-text { position: relative; margin-left: 12%; font-size: 52px; font-weight: 500; white-space: nowrap; border-bottom: 5px solid var(--ink); line-height: 1.15; }
+
+/* ---------- shared pieces for the other sheets ---------- */
+.head { left: 4.6%; top: 6.4%; font-size: 118px; max-width: 64%; }
+.kicker-line { left: 4.9%; top: 16.8%; font-size: 44px; font-weight: 500; letter-spacing: 0.04em; white-space: pre; }
+.rule-top { left: 3.4%; top: 21.6%; width: 93.2%; }
+.slip { /* a pickup slip: the line item's own small receipt */
+  position: absolute; background: #FCFBF8; padding: 52px 56px 64px;
+  box-shadow: 0 6px 14px rgba(60,48,32,.14);
+  font-size: 40px; line-height: 1.45;
+}
+.slip h3 { font-family: var(--mono); font-weight: 500; font-size: 42px; letter-spacing: 0.05em; margin-bottom: 22px; }
+.slip .line { display: flex; gap: 18px; align-items: baseline; }
+.slip .line .k { flex: none; }
+.slip .line .lead { flex: 1; border-bottom: 5px dotted var(--ink); transform: translateY(-10px); min-width: 30px; }
+.slip .line .v { flex: none; text-align: right; }
+.slip p { margin-top: 24px; color: var(--ink); font-size: 38px; line-height: 1.42; }
+.slip .stamp { display: block; width: 250px; margin: 26px 0 -24px auto; }
+/* The one motion moment: a stamp lands on each line item as its sheet comes into view. */
+@media (prefers-reduced-motion: no-preference) {
+  .presenting .stamp-in { animation: stamp .42s cubic-bezier(.2,1.4,.4,1) both; }
+  @keyframes stamp { from { opacity: 0; transform: translate(-50%, -52%) scale(1.6) rotate(-6deg); } 60% { opacity: 1; } to { opacity: 1; } }
+  .presenting .slip .stamp-in, .presenting .receipt .stamp-in { animation-name: stamp-slip; }
+  @keyframes stamp-slip { from { opacity: 0; transform: scale(1.6) rotate(-6deg); } 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+}
+.phone { position: absolute; border-radius: 60px; overflow: hidden; box-shadow: 0 18px 34px rgba(40,32,20,.22), 0 0 0 3px rgba(20,20,20,.08); background: var(--ground); }
+.phone img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cap { position: absolute; font-size: 34px; color: var(--ink-2); text-align: center; }
+.note { position: absolute; font-size: 38px; line-height: 1.42; color: var(--ink); }
+.pill { display: inline-block; padding: 4px 18px 6px; background: var(--ink); color: #FCFBF8; font-weight: 500; }
+
+/* team tags */
+.staff { position: absolute; left: 4.6%; right: 4.6%; top: 27%; height: 62%; display: grid; grid-template-columns: repeat(5, 1fr); gap: 46px; }
+.staff .card { position: relative; padding: 210px 34px 40px; }
+.staff .card .hang { position: absolute; left: 50%; top: 0; width: 4px; height: 120px; background: var(--string); }
+.staff .card .t { position: absolute; left: 0; right: 0; top: 100px; height: 150px; display: grid; place-items: center; }
+.staff .card .t .shape { position: absolute; inset: 0; clip-path: polygon(12% 0, 100% 0, 100% 100%, 12% 100%, 0 70%, 0 30%); filter: drop-shadow(0 4px 4px rgba(0,0,0,.18)); }
+.staff .card .t span { position: relative; font-family: var(--display); font-size: 46px; padding-left: 9%; white-space: nowrap; }
+.staff .card .t i { position: absolute; left: 4%; top: 44%; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); }
+.staff .card ul { list-style: none; font-size: 36px; line-height: 1.38; margin-top: 60px; }
+.staff .card li + li { margin-top: 18px; }
+.staff .card .ev { margin-top: 28px; font-size: 34px; color: var(--ink); }
+
+/* receipt for test results */
+.receipt { position: absolute; background: #FCFBF8; box-shadow: 0 8px 18px rgba(60,48,32,.15); padding: 60px 70px 80px; font-size: 42px; line-height: 1.55; }
+.receipt .row { display: flex; gap: 20px; align-items: baseline; }
+.receipt .row .lead { flex: 1; border-bottom: 5px dotted var(--ink); transform: translateY(-11px); }
+.receipt .row.total { font-weight: 500; font-size: 50px; margin-top: 14px; }
+.receipt .dash { margin: 26px 0; }
+.receipt .center { text-align: center; font-weight: 500; letter-spacing: 0.06em; }
+
+
+
+.pagenum { position: absolute; right: 3.6%; top: 7.4%; font-size: 40px; font-weight: 500; letter-spacing: 0.05em; color: var(--ink-2); }
+
+
+.slip.notes { left: 3.4%; right: 3.4%; top: 26%; bottom: 8.5%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 50px 0 40px; }
+.slip.notes > div { padding: 0 52px; }
+.slip.notes > div + div { border-left: 5px dashed var(--ink); }
+.slip.notes ul { list-style: none; }
+.slip.notes li { font-size: 38px; line-height: 1.38; padding-left: 52px; position: relative; }
+.slip.notes li + li { margin-top: 30px; }
+.slip.notes li::before { content: ""; position: absolute; left: 0; top: 13px; width: 24px; height: 24px; border: 4px solid var(--ink); }
+.slip.notes .done li::before { background: var(--ink); }
+/* Slide-native UML: the Sprint 1 part of each diagram, set large enough to read from the back of a room. */
+.uml-bands { position: absolute; left: 3.4%; right: 3.4%; top: 24.2%; bottom: 10.4%; display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 34px; }
+.uml-band { position: relative; border: 4px solid var(--ink); background: #FCFBF8; padding: 74px 26px 24px; display: flex; gap: 24px; align-items: stretch; }
+.uml-band > .bname { position: absolute; left: 24px; top: 12px; font-family: var(--display); font-size: 46px; }
+.uml-band > .bname small { font-family: var(--mono); font-size: 32px; margin-left: 20px; }
+.comp { position: relative; flex: 1; border: 3px solid var(--ink); padding: 18px 22px 20px; font-size: 33px; line-height: 1.28; background: #fff; }
+.comp i { display: block; font-style: normal; font-size: 28px; }
+.comp b { display: block; font-family: var(--display); font-size: 46px; font-weight: 700; line-height: 1.02; margin: 4px 0 8px; }
+.comp.plan { border-style: dashed; background: transparent; }
+.comp .s1 { position: absolute; right: 12px; top: 12px; padding: 2px 12px 4px; background: var(--top); border: 3px solid var(--ink); font-weight: 500; font-size: 26px; }
+.comp.iface { background: #EEF5FC; }
+.uml-legend { position: absolute; left: 3.4%; top: 90.6%; font-size: 32px; display: flex; gap: 46px; align-items: center; }
+.uml-legend .s1 { padding: 2px 12px 4px; background: var(--top); border: 3px solid var(--ink); font-weight: 500; }
+.uml-legend .dash-box { display: inline-block; width: 56px; height: 30px; border: 3px dashed var(--ink); vertical-align: middle; margin-right: 12px; }
+
+.seq { position: absolute; left: 3.4%; right: 3.4%; top: 24%; bottom: 7%; }
+.seq .lane { position: absolute; top: 0; width: 230px; margin-left: -115px; text-align: center; font-family: var(--display); font-size: 32px; line-height: 1.02; border: 3px solid var(--ink); background: #FCFBF8; padding: 12px 6px 14px; min-height: 92px; display: grid; place-items: center; }
+.seq .life { position: absolute; top: 96px; bottom: 0; width: 0; border-left: 3px dashed #8E8A82; }
+.seq .msg { position: absolute; height: 0; border-top: 4px solid var(--ink); }
+.seq .msg.ret { border-top-style: dashed; }
+.seq .msg::after { content: ""; position: absolute; top: -13px; border: 11px solid transparent; }
+.seq .msg.r::after { right: -4px; border-left: 18px solid var(--ink); border-right: 0; }
+.seq .msg.l::after { left: -4px; border-right: 18px solid var(--ink); border-left: 0; }
+.seq .lbl { position: absolute; font-size: 28px; white-space: nowrap; background: rgba(252,251,248,.92); padding: 0 8px; }
+.seq .self { position: absolute; width: 70px; height: 44px; border: 4px solid var(--ink); border-left: 0; }
+
+.cls { position: absolute; border: 4px solid var(--ink); background: #FCFBF8; font-size: 28px; line-height: 1.28; }
+.cls header { text-align: center; padding: 10px 12px 12px; border-bottom: 3px solid var(--ink); }
+.cls header i { display: block; font-style: normal; font-size: 25px; }
+.cls header b { font-family: var(--display); font-size: 40px; }
+.cls ul { list-style: none; padding: 12px 18px; }
+.cls ul + ul { border-top: 3px solid var(--ink); }
+.cls .real { padding: 8px 18px 12px; border-top: 3px dashed #8E8A82; font-size: 25px; }
+.cls-lines { position: absolute; inset: 0; pointer-events: none; }
+
+@media print {
+  @page { size: 2688px 1520px; margin: 0; }
+  html, body { background: none; }
+  .deck { padding: 0; gap: 0; display: block; }
+  .slide { break-after: page; }
+}
+</style>
+</head>
+<body>
+<main class="deck">
+
+<!-- 1. The order: Sprint 1 backlog -->
+<section class="slide" id="s1" aria-label="Sprint 1 order">
+  <h1 class="abs display s1-title">Quickdress  Sprint 1</h1>
+  <p class="abs s1-order">ORDER No. 001   7 NOV 2026</p>
+  <div class="abs dash s1-rule"></div>
+  <table class="form">
+    <colgroup><col style="width:17.1%"><col style="width:43.3%"><col style="width:21.9%"><col style="width:17.7%"></colgroup>
+    <thead><tr><th>ITEM</th><th>STORY</th><th>OWNER</th><th>STATUS</th></tr></thead>
+    <tbody>
+      <tr><td>No. 001</td><td>Add a piece from camera or library</td><td>Marwan</td><td class="status"><img src="assets/plates/stamp.png" alt="Done"></td></tr>
+      <tr><td>No. 002</td><td>Store category, colour, levels, season</td><td>Omar, Nada</td><td class="status"><img src="assets/plates/stamp.png" alt="Done"></td></tr>
+      <tr><td>No. 003</td><td>Edit and delete a piece</td><td>Aya</td><td class="status"><img src="assets/plates/stamp.png" alt="Done"></td></tr>
+      <tr><td>No. 004</td><td>Filter by season, warmth, formality, comfort</td><td>Malk</td><td class="status"><img src="assets/plates/stamp.png" alt="Done"></td></tr>
+      <tr><td>No. 005</td><td>Fill in the details on the phone</td><td>Marwan</td><td class="status"><img src="assets/plates/stamp.png" alt="Done"></td></tr>
+    </tbody>
+  </table>
+  <p class="abs backlog-note">13 BACKLOG ITEMS, S1-01 TO S1-13: REPORT TABLE 3 AND JIRA</p>
+  <img class="abs garment" src="assets/plates/garment.png" alt="A navy overshirt cut out by the app, with its tag">
+  <div class="tag" aria-hidden="true"><div class="tag-shape"></div><div class="tag-hole"></div><span class="tag-text">No. 003</span></div>
+</section>
+
+<!-- 2. Counter staff -->
+<section class="slide" id="s2" aria-label="Team">
+  <h2 class="abs display head">Who took each line of the order</h2>
+  <p class="abs kicker-line">TEAM 2   CSCE 3701   SPRINT 1</p>
+  <div class="abs dash rule-top"></div>
+  <div class="staff">
+    <div class="card"><div class="hang"></div><div class="t"><div class="shape" style="background:var(--top)"></div><i></i><span>Omar Hassan</span></div>
+      <ul><li>ClothingItem model and its rules</li><li>Core contracts, event bus, WardrobeManager</li><li>Storage, wardrobe grid, category and colour filters</li><li>CI on GitHub Actions</li></ul><p class="ev">a868b5d, 813f121</p></div>
+    <div class="card"><div class="hang"></div><div class="t"><div class="shape" style="background:var(--bottom)"></div><i></i><span>Nada Salem</span></div>
+      <ul><li>Built the ClothingItem model and the wardrobe grid with Omar</li></ul><p class="ev">Pair work under Omar's commits</p></div>
+    <div class="card"><div class="hang"></div><div class="t"><div class="shape" style="background:var(--outer)"></div><i></i><span>Aya Noaman</span></div>
+      <ul><li>Edit an item with its saved answers</li><li>Delete with a confirmation</li><li>The menu on the item page</li></ul><p class="ev">9ca70f0, 59d77b4</p></div>
+    <div class="card"><div class="hang"></div><div class="t"><div class="shape" style="background:var(--shoes)"></div><i></i><span>Malk Metwally</span></div>
+      <ul><li>Filter by season</li><li>Low, medium or high warmth, formality and comfort</li><li>Filter sheet and removable chips</li></ul><p class="ev">Jira: Implement filtering based on attributes</p></div>
+    <div class="card"><div class="hang"></div><div class="t"><div class="shape" style="background:var(--acc)"></div><i></i><span>Marwan Abouelfotuh</span></div>
+      <ul><li>Microkernel architecture revision</li><li>Camera and library capture, permissions</li><li>Cut-out and suggestions on the phone</li><li>The claim-ticket design, tests, documents</li></ul><p class="ev">PR #1, PR #2</p></div>
+  </div>
+</section>
+
+<!-- 3. No. 001: add a piece -->
+<section class="slide" id="s3" aria-label="No. 001 add a piece">
+  <h2 class="abs display head">No. 001  Add a piece</h2>
+  <p class="abs kicker-line">FR-01   NFR-07   MARWAN</p>
+  <p class="abs pagenum">PICKED UP</p>
+  <div class="abs dash rule-top"></div>
+  <div class="slip" style="left:4.6%; top:27%; width:31%;">
+    <h3>PICKUP SLIP No. 001</h3>
+    <div class="line"><span class="k">Camera</span><span class="lead"></span><span class="v">Yes</span></div>
+    <div class="line"><span class="k">Photo library</span><span class="lead"></span><span class="v">Yes</span></div>
+    <div class="line"><span class="k">Asks before iOS</span><span class="lead"></span><span class="v">Yes</span></div>
+    <div class="line"><span class="k">Camera refused</span><span class="lead"></span><span class="v">Still works</span></div>
+    <p>The app explains why it needs the camera before iOS asks. If the camera is off, the sheet offers the library and Settings, so nobody gets stuck.</p>
+    <img class="stamp" src="assets/plates/stamp.png" alt="Done">
+  </div>
+  <div class="phone" style="left:40.2%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/02-add-sheet.png" alt="Add sheet"></div>
+  <div class="phone" style="left:60.6%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/03-camera-note.png" alt="Camera note"></div>
+  <div class="phone" style="left:81%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/05-camera-off.png" alt="Camera off"></div>
+</section>
+
+<!-- 4. No. 005: details filled in -->
+<section class="slide" id="s4" aria-label="No. 005 details on the phone">
+  <h2 class="abs display head">No. 005  Filled in on the phone</h2>
+  <p class="abs kicker-line">FR-02   FR-13   FR-17   MARWAN</p>
+  <p class="abs pagenum">PICKED UP</p>
+  <div class="abs dash rule-top"></div>
+  <div class="phone" style="left:4.6%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/06-new-item-autofilled.png" alt="New item filled in"></div>
+  <div class="phone" style="left:23.4%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/07-new-item-ready.png" alt="New item ready to save"></div>
+  <div class="slip" style="left:44%; top:27%; width:51.4%;">
+    <h3>HOW IT WORKS, WITH NO API</h3>
+    <div class="line"><span class="k">Cut-out</span><span class="lead"></span><span class="v">Apple Vision, on the phone</span></div>
+    <div class="line"><span class="k">Category</span><span class="lead"></span><span class="v">Vision labels, then rules</span></div>
+    <div class="line"><span class="k">Colour</span><span class="lead"></span><span class="v">k-means, nearest in CIE Lab</span></div>
+    <div class="line"><span class="k">Exact colour</span><span class="lead"></span><span class="v">Colour wheel and eyedropper</span></div>
+    <div class="line"><span class="k">Ratings, seasons</span><span class="lead"></span><span class="v">From the category rules</span></div>
+    <p>Every answer is marked as a suggestion and can be changed. The screen says so: Filled in on this phone. Check each answer before you save.</p>
+    <p>The Simulator can't run Vision, so these screens show the full photo and only the colour. On a Mac, the same code cut out all nine test photos (next sheet).</p>
+    <img class="stamp" src="assets/plates/stamp.png" alt="Done">
+  </div>
+</section>
+
+<!-- 5. The cut-out on real photos -->
+<section class="slide" id="s5" aria-label="Cut-out results">
+  <h2 class="abs display head">The cut-out, on nine garment photos</h2>
+  <p class="abs kicker-line">TC-16   1 REAL PHOTO, 8 GENERATED, RUN ON A MAC</p>
+  <div class="abs dash rule-top"></div>
+  <img class="abs" src="assets/screens/11-cut-out-test-on-mac.png" alt="Nine garment photos and the cut-outs the app saves" style="left:3.4%; top:24.5%; width:93.2%; height:auto; clip-path: inset(15% 0 0 0); margin-top:-7.6%;">
+  <div class="receipt" style="left:4.6%; top:71.5%; width:90.8%; padding:30px 60px 34px; display:grid; grid-template-columns:repeat(3,1fr); gap:70px; font-size:38px;">
+    <div class="row"><span>Cut out</span><span class="lead"></span><span>9 of 9</span></div>
+    <div class="row"><span>Category</span><span class="lead"></span><span>6 of 9</span></div>
+    <div class="row"><span>Colour, after fix</span><span class="lead"></span><span>8 of 9</span></div>
+  </div>
+  <p class="note" style="left:4.6%; top:83%; width:90%;">The white sneakers lost part of their white lining with the light background. Light pieces cut out best on a darker surface, and the user can keep the original photo.</p>
+</section>
+
+<!-- 6. No. 002: store and browse -->
+<section class="slide" id="s6" aria-label="No. 002 store and browse">
+  <h2 class="abs display head">No. 002  Store it, browse it</h2>
+  <p class="abs kicker-line">FR-02   FR-04   OMAR, NADA</p>
+  <p class="abs pagenum">PICKED UP</p>
+  <div class="abs dash rule-top"></div>
+  <div class="phone" style="left:4.6%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/09-wardrobe.png" alt="Wardrobe grid"></div>
+  <div class="phone" style="left:23.4%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/10-item-detail.png" alt="Item detail"></div>
+  <div class="slip" style="left:44%; top:27%; width:51.4%;">
+    <h3>WHAT EACH PIECE KEEPS</h3>
+    <div class="line"><span class="k">Category</span><span class="lead"></span><span class="v">Top, bottom, outerwear, shoes, accessory</span></div>
+    <div class="line"><span class="k">Colour</span><span class="lead"></span><span class="v">12 palette colours, plus the exact hex</span></div>
+    <div class="line"><span class="k">Warmth, formality, comfort</span><span class="lead"></span><span class="v">1 to 5</span></div>
+    <div class="line"><span class="k">Season</span><span class="lead"></span><span class="v">At least one</span></div>
+    <div class="line"><span class="k">Tag number</span><span class="lead"></span><span class="v">No. 001 and up</span></div>
+    <p>Saved with SwiftData, photos as files on the phone. The grid filters by category and colour with tag-shaped chips; tap a piece for its receipt.</p>
+    <img class="stamp" src="assets/plates/stamp.png" alt="Done">
+  </div>
+</section>
+
+<!-- 7. No. 003: edit and delete -->
+<section class="slide" id="s7" aria-label="No. 003 edit and delete">
+  <h2 class="abs display head">No. 003  Edit and delete</h2>
+  <p class="abs kicker-line">FR-03   AYA</p>
+  <p class="abs pagenum">PICKED UP</p>
+  <div class="abs dash rule-top"></div>
+  <div class="phone" style="left:4.6%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/14-item-menu.png" alt="Edit or delete menu"></div>
+  <div class="phone" style="left:23.4%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/15-edit-item.png" alt="Edit item"></div>
+  <div class="phone" style="left:42.2%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/16-delete-confirm.png" alt="Delete confirmation"></div>
+  <div class="slip" style="left:62.4%; top:27%; width:33%;">
+    <h3>PICKUP SLIP No. 003</h3>
+    <div class="line"><span class="k">Edit</span><span class="lead"></span><span class="v">Saved answers</span></div>
+    <div class="line"><span class="k">Photo</span><span class="lead"></span><span class="v">Kept</span></div>
+    <div class="line"><span class="k">Delete</span><span class="lead"></span><span class="v">Asks first</span></div>
+    <div class="line"><span class="k">Photo file</span><span class="lead"></span><span class="v">Removed too</span></div>
+    <p>The edit shows on the item page as soon as it is saved. The first push broke the build on main; pull request #2 fixed it and was merged after CI passed.</p>
+    <img class="stamp" src="assets/plates/stamp.png" alt="Done">
+  </div>
+</section>
+
+<!-- 8. No. 004: filters -->
+<section class="slide" id="s8" aria-label="No. 004 filter by attributes">
+  <h2 class="abs display head">No. 004  Filter by what it's for</h2>
+  <p class="abs kicker-line">FR-04   MALK</p>
+  <p class="abs pagenum">PICKED UP</p>
+  <div class="abs dash rule-top"></div>
+  <div class="phone" style="left:4.6%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/12-filter-sheet.png" alt="Filter sheet"></div>
+  <div class="phone" style="left:23.4%; top:26%; width:16.2%; height:63.5%;"><img src="assets/screens/13-wardrobe-filtered.png" alt="Filtered wardrobe"></div>
+  <div class="slip" style="left:44%; top:27%; width:51.4%;">
+    <h3>PICKUP SLIP No. 004</h3>
+    <div class="line"><span class="k">Season</span><span class="lead"></span><span class="v">Any selected season</span></div>
+    <div class="line"><span class="k">Low</span><span class="lead"></span><span class="v">1 to 2</span></div>
+    <div class="line"><span class="k">Medium</span><span class="lead"></span><span class="v">3</span></div>
+    <div class="line"><span class="k">High</span><span class="lead"></span><span class="v">4 to 5</span></div>
+    <div class="line"><span class="k">Combined with</span><span class="lead"></span><span class="v">Category and colour</span></div>
+    <p>In the demo wardrobe of nine photographed garments, winter and high warmth leaves three: the overshirt, the coat and the beanie. The UI test TC-04 uses its own colour-square test wardrobe, where it leaves one.</p>
+    <img class="stamp" src="assets/plates/stamp.png" alt="Done">
+  </div>
+</section>
+
+<!-- 9. Architecture -->
+<section class="slide" id="s9" aria-label="Architecture changes">
+  <h2 class="abs display head">What changed in the workshop</h2>
+  <p class="abs kicker-line">COMPONENT DIAGRAM, SPRINT 1 PART   FULL: DESIGN SPEC 7.1</p>
+  <div class="abs dash rule-top"></div>
+  <div class="uml-bands">
+    <div class="uml-band"><span class="bname">Host app<small>screens call the core only</small></span>
+      <div class="comp"><span class="s1">S1</span><i>«component»</i><b>Wardrobe and item screens</b>Views and view models (MVVM)</div>
+      <div class="comp"><span class="s1">S1</span><i>«component»</i><b>QuickdressApp</b>Creates every plug-in</div>
+      <div class="comp plan"><i>«component»</i><b>Today screen</b>Sprint 2</div>
+    </div>
+    <div class="uml-band"><span class="bname">QuickdressCore<small>Foundation only</small></span>
+      <div class="comp"><span class="s1">S1</span><i>«component»</i><b>WardrobeManager</b>Validates, saves, numbers items</div>
+      <div class="comp"><span class="s1">S1</span><i>«component»</i><b>EventBus</b>itemSaved, itemDeleted</div>
+      <div class="comp iface"><span class="s1">S1</span><i>«interface»</i><b>ImageSource</b>Camera or library</div>
+      <div class="comp iface"><span class="s1">S1</span><i>«interface»</i><b>ItemStore, PhotoStore</b>Items and photo files</div>
+      <div class="comp plan"><i>«component»</i><b>PluginRegistry</b>Sprint 2</div>
+    </div>
+    <div class="uml-band"><span class="bname">Plug-in packages<small>realise the core's contracts</small></span>
+      <div class="comp"><span class="s1">S1</span><i>CapturePlugins</i><b>CameraSource, PhotoLibrarySource</b>Helpers: SubjectLifter, ItemAnalyzer</div>
+      <div class="comp"><span class="s1">S1</span><i>StoragePlugins</i><b>SwiftDataItemStore, FilePhotoStore</b>On the phone only</div>
+      <div class="comp plan"><i>Context, filter, recommender</i><b>Weather, rules, outfit</b>Sprint 2</div>
+    </div>
+  </div>
+  <div class="uml-legend"><span><span class="s1">S1</span> built in Sprint 1</span><span><span class="dash-box"></span>planned</span><span>The host app uses the core; plug-ins realise its interfaces</span></div>
+</section>
+
+<!-- 10. Sequence: add an item -->
+<section class="slide" id="s10" aria-label="Sequence diagram add an item">
+  <h2 class="abs display head">Lower-level design: adding a piece</h2>
+  <p class="abs kicker-line">SEQUENCE DIAGRAM   FULL: DESIGN SPEC 7.4</p>
+  <div class="abs dash rule-top"></div>
+  <div class="seq">
+    <div class="life" style="left:125px"></div><div class="lane" style="left:125px">User</div><div class="life" style="left:376px"></div><div class="lane" style="left:376px">AddItemFlow</div><div class="life" style="left:626px"></div><div class="lane" style="left:626px">ImageSource</div><div class="life" style="left:877px"></div><div class="lane" style="left:877px">CheckIn ViewModel</div><div class="life" style="left:1127px"></div><div class="lane" style="left:1127px">SubjectLifter</div><div class="life" style="left:1378px"></div><div class="lane" style="left:1378px">ItemAnalyzer</div><div class="life" style="left:1628px"></div><div class="lane" style="left:1628px">Wardrobe Manager</div><div class="life" style="left:1879px"></div><div class="lane" style="left:1879px">ItemStore, PhotoStore</div><div class="life" style="left:2129px"></div><div class="lane" style="left:2129px">EventBus</div><div class="life" style="left:2380px"></div><div class="lane" style="left:2380px">Wardrobe ViewModel</div><div class="msg r" style="left:125px; width:250px; top:190px"></div><div class="lbl" style="left:141px; top:148px">1  choose camera or library</div><div class="msg r" style="left:376px; width:250px; top:262px"></div><div class="lbl" style="left:392px; top:220px">2  capture()</div><div class="msg l ret" style="left:376px; width:250px; top:335px"></div><div class="lbl" style="left:392px; top:293px">3  photo (JPEG)</div><div class="msg r" style="left:376px; width:501px; top:407px"></div><div class="lbl" style="left:392px; top:365px">4  start()</div><div class="msg r" style="left:877px; width:250px; top:480px"></div><div class="lbl" style="left:893px; top:438px">5  lift(photo)</div><div class="msg r" style="left:877px; width:501px; top:552px"></div><div class="lbl" style="left:893px; top:510px">6  suggest(cut-out)</div><div class="self" style="left:877px; top:602px"></div><div class="lbl" style="left:961px; top:586px">7  apply(suggestion)</div><div class="msg r" style="left:125px; width:752px; top:697px"></div><div class="lbl" style="left:141px; top:655px">8  check the answers, Save</div><div class="msg r" style="left:877px; width:752px; top:769px"></div><div class="lbl" style="left:893px; top:727px">9  addItem(item, photo)</div><div class="msg r" style="left:1628px; width:250px; top:842px"></div><div class="lbl" style="left:1644px; top:800px">10  savePhoto, save(item)</div><div class="msg r" style="left:1628px; width:501px; top:914px"></div><div class="lbl" style="left:1644px; top:872px">11  publish(itemSaved)</div><div class="msg r" style="left:2129px; width:250px; top:986px"></div><div class="lbl" style="left:2145px; top:944px">12  reload the grid</div>
+  </div>
+</section>
+
+<!-- 11. Class diagram -->
+<section class="slide" id="s11" aria-label="Class diagram">
+  <h2 class="abs display head">Lower-level design: the code as built</h2>
+  <p class="abs kicker-line">CLASS DIAGRAM, MAIN TYPES   FULL: DESIGN SPEC 7.5</p>
+  <div class="abs dash rule-top"></div>
+  <svg class="cls-lines" viewBox="0 0 2688 1520" width="2688" height="1520" aria-hidden="true"><defs><marker id="open" viewBox="0 0 14 14" refX="13" refY="7" markerWidth="14" markerHeight="14" orient="auto"><path d="M1,1 L13,7 L1,13" fill="none" stroke="#141414" stroke-width="2.2"/></marker></defs><line x1="556" y1="817" x2="849" y2="927" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="1023" y1="817" x2="1023" y2="927" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="1314" y1="595" x2="1374" y2="595" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="1955" y1="595" x2="2015" y2="595" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="733" y1="1150" x2="673" y2="1150" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="1314" y1="1150" x2="1374" y2="1150" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/><line x1="1227" y1="927" x2="2160" y2="817" stroke="#141414" stroke-width="4" stroke-dasharray="14 10" marker-end="url(#open)"/></svg>
+  <div class="cls" style="left:91px; top:372px; width:581px; height:445px"><header><b>CheckInViewModel</b></header><ul><li>category, colour, exactColour</li><li>warmth, formality, comfort</li><li>seasons, suggested</li></ul><ul><li>start()</li><li>apply(suggestion)</li><li>save() -&gt; Bool</li></ul></div><div class="cls" style="left:733px; top:372px; width:581px; height:445px"><header><b>WardrobeViewModel</b></header><ul><li>items</li><li>filter</li></ul><ul><li>load()</li><li>photo(for: item)</li></ul></div><div class="cls" style="left:1374px; top:372px; width:581px; height:445px"><header><i>«struct»</i><b>WardrobeFilter</b></header><ul><li>category, colour</li><li>seasons</li><li>levels: Level -&gt; LevelBand</li></ul><ul><li>matches(item) -&gt; Bool</li><li>apply(to: items)</li></ul></div><div class="cls" style="left:2015px; top:372px; width:581px; height:445px"><header><i>«struct»</i><b>ClothingItem</b></header><ul><li>id, number, photo</li><li>category, colour, exactColour</li><li>warmth, formality, comfort</li><li>seasons</li></ul><ul><li>validate()</li></ul></div><div class="cls" style="left:91px; top:927px; width:581px; height:445px"><header><i>«protocol»</i><b>ItemStore</b></header><ul></ul><ul><li>fetchItems()</li><li>save(item)</li><li>delete(item)</li></ul><div class="real">SwiftDataItemStore</div></div><div class="cls" style="left:733px; top:927px; width:581px; height:445px"><header><b>WardrobeManager</b></header><ul><li>items, photos, bus</li></ul><ul><li>addItem(item, photo)</li><li>update(item)</li><li>delete(item)</li><li>nextNumber()</li></ul></div><div class="cls" style="left:1374px; top:927px; width:581px; height:445px"><header><i>«protocol»</i><b>PhotoStore</b></header><ul></ul><ul><li>savePhoto(data) -&gt; ref</li><li>loadPhoto(ref)</li><li>deletePhoto(ref)</li></ul><div class="real">FilePhotoStore</div></div><div class="cls" style="left:2015px; top:927px; width:581px; height:445px"><header><i>«protocol»</i><b>ImageSource</b></header><ul><li>title, access</li></ul><ul><li>requestAccess()</li><li>capture() -&gt; Data</li></ul><div class="real">CameraSource, PhotoLibrarySource</div></div>
+  <p class="abs" style="left:3.4%; top:92%; font-size:30px;">Dashed arrows: depends on. Below a protocol: the plug-in that realises it.</p>
+</section>
+
+<!-- 12. Testing method -->
+<section class="slide" id="s12" aria-label="Testing method">
+  <h2 class="abs display head">How every piece was inspected</h2>
+  <p class="abs kicker-line">TESTING METHOD</p>
+  <div class="abs dash rule-top"></div>
+  <table class="form" style="top:25.5%; height:auto; width:93.2%; font-size:36px; line-height:1.34;">
+    <colgroup><col style="width:24%"><col style="width:52%"><col style="width:24%"></colgroup>
+    <thead><tr><th style="height:96px">LEVEL</th><th>WHAT IT CHECKS</th><th>TOOL</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:16px 24px">Unit, white box</td><td style="padding:16px 24px">Each package alone, with in-memory stores that can be told to fail a save; the screens' view models with no screen</td><td style="padding:16px 24px">XCTest, swift test</td></tr>
+      <tr><td style="padding:16px 24px">Black box rules</td><td style="padding:16px 24px">Boundary values on the 1 to 5 ratings (0, 1, 5, 6) and band edges (2 and 3, 3 and 4); equivalence partitions for seasons</td><td style="padding:16px 24px">XCTest</td></tr>
+      <tr><td style="padding:16px 24px">End to end</td><td style="padding:16px 24px">The real screens: add, cancel, edit then delete, filter. A test launch mode swaps in an in-memory wardrobe and a test photo source</td><td style="padding:16px 24px">XCUITest</td></tr>
+      <tr><td style="padding:16px 24px">Manual system</td><td style="padding:16px 24px">Permission alerts, the real photo picker, relaunch, large text, the cut-out on real photos</td><td style="padding:16px 24px">Simulator, Mac</td></tr>
+      <tr><td style="padding:16px 24px">Every change</td><td style="padding:16px 24px">All package tests, the app build and the app's unit tests on every push and pull request</td><td style="padding:16px 24px">GitHub Actions</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 13. Test results -->
+<section class="slide" id="s13" aria-label="Test results">
+  <h2 class="abs display head">The inspection receipt</h2>
+  <p class="abs kicker-line">TEST RESULTS   7 NOV 2026</p>
+  <div class="abs dash rule-top"></div>
+  <div class="receipt" style="left:4.6%; top:26%; width:41%;">
+    <p class="center" style="text-align:left">AUTOMATED TESTS</p>
+    <div class="dash"></div>
+    <div class="row"><span>QuickdressCore</span><span class="lead"></span><span>40</span></div>
+    <div class="row"><span>StoragePlugins</span><span class="lead"></span><span>14</span></div>
+    <div class="row"><span>CapturePlugins</span><span class="lead"></span><span>7</span></div>
+    <div class="row"><span>App view models</span><span class="lead"></span><span>17</span></div>
+    <div class="row"><span>End-to-end UI</span><span class="lead"></span><span>4</span></div>
+    <div class="dash"></div>
+    <div class="row total"><span>TOTAL</span><span class="lead"></span><span>82 passed</span></div>
+    <div class="row total"><span>FAILURES</span><span class="lead"></span><span>0</span></div>
+    <img src="assets/plates/stamp.png" alt="Done" style="position:absolute; right:30px; top:24px; width:230px;">
+  </div>
+  <div class="receipt" style="left:49.4%; top:26%; width:46%; padding-bottom:210px;">
+    <p class="center">MANUAL CASES TC-16 TO TC-22</p>
+    <div class="dash"></div>
+    <div class="row"><span>Passed</span><span class="lead"></span><span>3</span></div>
+    <div class="row"><span>Failed, fixed, passed</span><span class="lead"></span><span>2</span></div>
+    <div class="row"><span>Part done (force-quit)</span><span class="lead"></span><span>1</span></div>
+    <div class="row"><span>Not run (real iPhone)</span><span class="lead"></span><span>1</span></div>
+    <div class="dash"></div>
+    <p class="center">DEFECTS FOUND AND FIXED</p>
+    <img src="assets/plates/stamp-fixed.png" alt="Fixed" style="position:absolute; right:34px; bottom:34px; width:250px;">
+    <div class="row"><span>D1 main did not build</span><span class="lead"></span><span>PR #2</span></div>
+    <div class="row"><span>D2 denim read as grey</span><span class="lead"></span><span>5 to 8 of 9</span></div>
+    <div class="row"><span>D3 tags cut off, large text</span><span class="lead"></span><span>capped</span></div>
+  </div>
+</section>
+
+<!-- 14. Retrospective -->
+<section class="slide" id="s14" aria-label="Sprint retrospective">
+  <h2 class="abs display head">Notes from the counter</h2>
+  <p class="abs kicker-line">SPRINT RETROSPECTIVE</p>
+  <div class="abs dash rule-top"></div>
+  <div class="slip notes">
+    <div><h3>WENT WELL</h3><ul class="done">
+      <li>FR-01 to FR-04 work end to end, and FR-13 and FR-17 arrived early</li>
+      <li>The core only imports Foundation, so its rules test in milliseconds</li>
+      <li>Cut-out and suggestions on the phone, with no API key</li>
+      <li>Testing caught three real defects before the demo</li></ul></div>
+    <div><h3>TO IMPROVE</h3><ul>
+      <li>Build before pushing, and never push to main directly</li>
+      <li>A branch and a reviewed pull request for every change</li>
+      <li>The Simulator has no Vision; we need a signed team iPhone</li>
+      <li>Agree the look before building screens</li></ul></div>
+    <div><h3>NEXT SPRINT</h3><ul>
+      <li>Branch protection: CI and one review before merging</li>
+      <li>The plug-in registry, with tests</li>
+      <li>FR-05 to FR-08: the daily outfit and the weather</li>
+      <li>Real-iPhone tests, force-quit test, dark mode</li></ul></div>
+  </div>
+</section>
+
+<!-- 15. Paperwork updated -->
+<section class="slide" id="s15" aria-label="Documentation updates">
+  <h2 class="abs display head">The paperwork, updated</h2>
+  <p class="abs kicker-line">REQUIREMENTS AND DESIGN, REVISION 2</p>
+  <div class="abs dash rule-top"></div>
+  <div class="slip" style="left:4.6%; top:27%; width:43.6%;">
+    <h3>REQUIREMENTS SPECIFICATION</h3>
+    <div class="line"><span class="k">FR-02</span><span class="lead"></span><span class="v">Tag number, exact colour</span></div>
+    <div class="line"><span class="k">FR-04</span><span class="lead"></span><span class="v">Season and rating filters</span></div>
+    <div class="line"><span class="k">FR-13, FR-17</span><span class="lead"></span><span class="v">Delivered in Sprint 1</span></div>
+    <div class="line"><span class="k">Sprint plan</span><span class="lead"></span><span class="v">Sprint 1 done</span></div>
+    <div class="line"><span class="k">Use cases</span><span class="lead"></span><span class="v">Match the built flows</span></div>
+  </div>
+  <div class="slip" style="left:51.8%; top:27%; width:43.6%;">
+    <h3>DESIGN SPECIFICATION</h3>
+    <div class="line"><span class="k">Components</span><span class="lead"></span><span class="v">Built parts marked S1</span></div>
+    <div class="line"><span class="k">New section 7</span><span class="lead"></span><span class="v">Capture plug-ins, domain</span></div>
+    <div class="line"><span class="k">Diagrams</span><span class="lead"></span><span class="v">Class, add, edit and delete</span></div>
+    <div class="line"><span class="k">UI design</span><span class="lead"></span><span class="v">The claim ticket</span></div>
+    <div class="line"><span class="k">Tests</span><span class="lead"></span><span class="v">As run, with results</span></div>
+  </div>
+  <p class="note" style="left:4.6%; top:64%; width:86%; font-size:40px; color:var(--ink);">Each document opens with a change log of every revision. In the body, yellow rows and paragraphs marked Changed in rev. 2 are the changes, so nothing needs a side-by-side comparison. Revisions 0 and 1 stay in the repository.</p>
+</section>
+
+<!-- 16. The next order -->
+<section class="slide" id="s16" aria-label="Sprint 2 order">
+  <h2 class="abs display s1-title" style="top:7.9%">Quickdress  Sprint 2</h2>
+  <p class="abs s1-order">ORDER No. 002   OPEN</p>
+  <div class="abs dash s1-rule" style="width:93.2%"></div>
+  <table class="form" style="width:93.2%; height:auto;">
+    <colgroup><col style="width:13%"><col style="width:52%"><col style="width:20%"><col style="width:15%"></colgroup>
+    <thead><tr><th style="height:120px">ITEM</th><th>STORY</th><th>REQ.</th><th>STATUS</th></tr></thead>
+    <tbody>
+      <tr><td style="height:118px">No. 006</td><td>Plug-in registry, with its tests</td><td>NFR-08</td><td class="stamped"><img src="assets/plates/stamp-open.png" alt="Open"></td></tr>
+      <tr><td style="height:118px">No. 007</td><td>One complete outfit a day, on Today</td><td>FR-05</td><td class="stamped"><img src="assets/plates/stamp-open.png" alt="Open"></td></tr>
+      <tr><td style="height:118px">No. 008</td><td>Swap one piece, or a new outfit</td><td>FR-06, FR-07</td><td class="stamped"><img src="assets/plates/stamp-open.png" alt="Open"></td></tr>
+      <tr><td style="height:118px">No. 009</td><td>The day&#x27;s forecast sets warmth and coat</td><td>FR-08</td><td class="stamped"><img src="assets/plates/stamp-open.png" alt="Open"></td></tr>
+      <tr><td style="height:118px">No. 010</td><td>Cut-out and suggestions on a real iPhone</td><td>FR-13, FR-17</td><td class="stamped"><img src="assets/plates/stamp-open.png" alt="Open"></td></tr>
+      </tbody>
+  </table>
+  <p class="abs display" style="left:4.6%; top:81%; font-size:96px;">Questions?</p>
+</section>
+
+</main>
+<script>
+  // Fit each 2688 x 1520 sheet to the window when presenting; captures run at full size.
+  function fit() {
+    const s = Math.min(window.innerWidth / 2688, 1);
+    document.querySelectorAll('.slide').forEach(el => {
+      el.style.transform = s < 1 ? `scale(${s})` : '';
+      el.style.marginBottom = s < 1 ? `${-1520 * (1 - s)}px` : '';
+    });
+  }
+  const q = new URLSearchParams(location.search);
+  if (q.has('capture')) {
+    // Capture mode: one sheet at full size, nothing around it.
+    document.documentElement.style.background = 'none';
+    document.body.style.background = 'none';
+    const deck = document.querySelector('.deck'); deck.style.padding = '0'; deck.style.gap = '0';
+    if (q.has('s')) {
+      const n = parseInt(q.get('s'), 10);
+      document.querySelectorAll('.slide').forEach((el, i) => { if (i + 1 !== n) el.style.display = 'none'; });
+    }
+  } else {
+    addEventListener('resize', fit); fit();
+    document.body.classList.add('presenting');
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('img[src$="stamp.png"]').forEach((img, i) => {
+        img.style.animationDelay = `${120 + i * 140}ms`; img.classList.add('stamp-in');
+      });
+      io.unobserve(e.target);
+    }), { threshold: 0.55 });
+    document.querySelectorAll('.slide').forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>

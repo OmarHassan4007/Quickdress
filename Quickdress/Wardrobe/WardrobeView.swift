@@ -4,6 +4,7 @@ import QuickdressCore
 struct WardrobeView: View {
     @Bindable var model: WardrobeViewModel
     @Bindable var addItem: AddItemFlow
+    @State private var showsFilters = false
 
     private let columns = [GridItem(.flexible(), spacing: 18), GridItem(.flexible(), spacing: 18)]
 
@@ -17,7 +18,9 @@ struct WardrobeView: View {
                     .padding(.top, 4)
                     .accessibilityAddTraits(.isHeader)
                 if !model.items.isEmpty && !model.loadFailed {
-                    WardrobeFilterBar(filter: $model.filter, colours: model.coloursInWardrobe)
+                    WardrobeFilterBar(filter: $model.filter, colours: model.coloursInWardrobe) {
+                        showsFilters = true
+                    }
                 }
                 content
             }
@@ -26,6 +29,18 @@ struct WardrobeView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     if !model.items.isEmpty {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                                showsFilters = true
+                            } label: {
+                                Image(systemName: model.filter.hasAttributeFilters
+                                      ? "line.3.horizontal.decrease.circle.fill"
+                                      : "line.3.horizontal.decrease.circle")
+                                    .font(.system(size: 19, weight: .semibold))
+                                    .foregroundStyle(Theme.ink)
+                            }
+                            .accessibilityLabel("Filter by season, warmth, formality and comfort")
+                        }
                         ToolbarItem(placement: .primaryAction) {
                             Button {
                                 addItem.start()
@@ -42,6 +57,9 @@ struct WardrobeView: View {
                 .navigationDestination(for: ClothingItem.self) { item in
                     ItemDetailView(item: item, wardrobe: model)
                 }
+        }
+        .sheet(isPresented: $showsFilters) {
+            WardrobeFilterSheet(model: model)
         }
         .task {
             model.load()
@@ -60,7 +78,7 @@ struct WardrobeView: View {
         } else if model.visibleItems.isEmpty {
             TicketMessage(
                 title: "No matching pieces",
-                text: "Nothing in your wardrobe matches the selected category and colour."
+                text: "Nothing in your wardrobe matches these filters."
             ) {
                 Button("Clear filters") { model.clearFilters() }
                     .buttonStyle(UnderlinedButtonStyle())
@@ -75,6 +93,7 @@ struct WardrobeView: View {
                             }
                         }
                         .buttonStyle(.plain)
+                        .accessibilityIdentifier("item.\(item.number)")
                     }
                 }
                 .padding(.horizontal, 20)

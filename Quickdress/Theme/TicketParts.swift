@@ -101,6 +101,9 @@ struct TagView: View {
         .padding(.vertical, 10 * scale)
         .background(TagShape().fill(colour).shadow(color: .black.opacity(0.22), radius: 1.5, y: 1.5))
         .fixedSize()
+        // The tag is drawn on the photo and VoiceOver reads its number from the item's label,
+        // so it stays at a size that fits the photo at every text size.
+        .dynamicTypeSize(...DynamicTypeSize.large)
         .accessibilityHidden(true)
     }
 }

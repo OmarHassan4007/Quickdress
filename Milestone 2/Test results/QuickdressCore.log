@@ -1,0 +1,108 @@
+Building for debugging...
+[0/2] Write swift-version--58304C5D6DBC2206.txt
+Build complete! (0.53s)
+Test Suite 'All tests' started at 2026-11-07 21:05:14.096.
+Test Suite 'QuickdressCorePackageTests.xctest' started at 2026-11-07 21:05:14.107.
+Test Suite 'ClothingItemTests' started at 2026-11-07 21:05:14.107.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testAllProblemsAreReportedInOrder]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testAllProblemsAreReportedInOrder]' passed (0.002 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testCodableRoundTripKeepsEveryAttribute]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testCodableRoundTripKeepsEveryAttribute]' passed (0.004 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testCurrentSeasonUsesTheDatesMonth]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testCurrentSeasonUsesTheDatesMonth]' passed (0.001 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testEachLevelOutsideOneToFiveIsRejected]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testEachLevelOutsideOneToFiveIsRejected]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testItemWithNoSeasonIsRejected]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testItemWithNoSeasonIsRejected]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testLevelBoundsAreInclusive]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testLevelBoundsAreInclusive]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testPaletteHasTwelveColoursAndFiveNeutrals]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testPaletteHasTwelveColoursAndFiveNeutrals]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testRawValuesAreStable]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testRawValuesAreStable]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testSeasonFollowsCalendarMonths]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testSeasonFollowsCalendarMonths]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testValidateThrowsTheFirstProblem]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testValidateThrowsTheFirstProblem]' passed (0.001 seconds).
+Test Case '-[QuickdressCoreTests.ClothingItemTests testValidItemHasNoErrors]' started.
+Test Case '-[QuickdressCoreTests.ClothingItemTests testValidItemHasNoErrors]' passed (0.000 seconds).
+Test Suite 'ClothingItemTests' passed at 2026-11-07 21:05:14.117.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.009 (0.010) seconds
+Test Suite 'EventBusTests' started at 2026-11-07 21:05:14.117.
+Test Case '-[QuickdressCoreTests.EventBusTests testEveryPublishedEventIsDelivered]' started.
+Test Case '-[QuickdressCoreTests.EventBusTests testEveryPublishedEventIsDelivered]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.EventBusTests testHandlersRunInSubscriptionOrder]' started.
+Test Case '-[QuickdressCoreTests.EventBusTests testHandlersRunInSubscriptionOrder]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.EventBusTests testPublishingWithNoSubscribersDoesNothing]' started.
+Test Case '-[QuickdressCoreTests.EventBusTests testPublishingWithNoSubscribersDoesNothing]' passed (0.000 seconds).
+Test Suite 'EventBusTests' passed at 2026-11-07 21:05:14.118.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'PaletteTests' started at 2026-11-07 21:05:14.118.
+Test Case '-[QuickdressCoreTests.PaletteTests testEveryPaletteColourMapsToItself]' started.
+Test Case '-[QuickdressCoreTests.PaletteTests testEveryPaletteColourMapsToItself]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.PaletteTests testExactColoursMapToTheNearestPaletteColour]' started.
+Test Case '-[QuickdressCoreTests.PaletteTests testExactColoursMapToTheNearestPaletteColour]' passed (0.001 seconds).
+Test Case '-[QuickdressCoreTests.PaletteTests testGarmentPhotoColoursFromSprint1Testing]' started.
+Test Case '-[QuickdressCoreTests.PaletteTests testGarmentPhotoColoursFromSprint1Testing]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.PaletteTests testHexRoundTrips]' started.
+Test Case '-[QuickdressCoreTests.PaletteTests testHexRoundTrips]' passed (0.000 seconds).
+Test Suite 'PaletteTests' passed at 2026-11-07 21:05:14.119.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'WardrobeFilterTests' started at 2026-11-07 21:05:14.119.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testAttributeFilterCountAndClear]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testAttributeFilterCountAndClear]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testAttributeFiltersCombineWithCategoryAndColour]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testAttributeFiltersCombineWithCategoryAndColour]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testCategoryAndColourMustBothMatch]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testCategoryAndColourMustBothMatch]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testCategoryFilterKeepsOnlyThatCategory]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testCategoryFilterKeepsOnlyThatCategory]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testColourFilterKeepsOnlyThatColour]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testColourFilterKeepsOnlyThatColour]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testEveryAttributeFilterMustMatch]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testEveryAttributeFilterMustMatch]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testFilterWithNoMatchesReturnsNothing]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testFilterWithNoMatchesReturnsNothing]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testLevelBandBoundaries]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testLevelBandBoundaries]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testNoFilterKeepsEveryItemInOrder]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testNoFilterKeepsEveryItemInOrder]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testSeasonFilterKeepsItemsWornInAnySelectedSeason]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testSeasonFilterKeepsItemsWornInAnySelectedSeason]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testWarmthBandKeepsOnlyItemsInThatBand]' started.
+Test Case '-[QuickdressCoreTests.WardrobeFilterTests testWarmthBandKeepsOnlyItemsInThatBand]' passed (0.000 seconds).
+Test Suite 'WardrobeFilterTests' passed at 2026-11-07 21:05:14.121.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'WardrobeManagerTests' started at 2026-11-07 21:05:14.121.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAddItemSavesThePhotoAndTheItemAndPublishes]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAddItemSavesThePhotoAndTheItemAndPublishes]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAllItemsReturnsWhatTheStoreHolds]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAllItemsReturnsWhatTheStoreHolds]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAnItemThatAlreadyHasANumberKeepsIt]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testAnItemThatAlreadyHasANumberKeepsIt]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testDeleteRemovesTheItemAndItsPhotoAndPublishes]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testDeleteRemovesTheItemAndItsPhotoAndPublishes]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testFailedItemSaveDeletesThePhotoAgain]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testFailedItemSaveDeletesThePhotoAgain]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testInvalidItemIsNotSaved]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testInvalidItemIsNotSaved]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testNewItemsGetTheNextTagNumber]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testNewItemsGetTheNextTagNumber]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testPhotoForItemReturnsTheSavedData]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testPhotoForItemReturnsTheSavedData]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testPhotoForItemWithoutPhotoIsNil]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testPhotoForItemWithoutPhotoIsNil]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testUnnumberedItemsAreNumberedAfterTheHighestNumber]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testUnnumberedItemsAreNumberedAfterTheHighestNumber]' passed (0.000 seconds).
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testUpdateSavesChangesAndPublishes]' started.
+Test Case '-[QuickdressCoreTests.WardrobeManagerTests testUpdateSavesChangesAndPublishes]' passed (0.000 seconds).
+Test Suite 'WardrobeManagerTests' passed at 2026-11-07 21:05:14.124.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'QuickdressCorePackageTests.xctest' passed at 2026-11-07 21:05:14.124.
+	 Executed 40 tests, with 0 failures (0 unexpected) in 0.013 (0.017) seconds
+Test Suite 'All tests' passed at 2026-11-07 21:05:14.124.
+	 Executed 40 tests, with 0 failures (0 unexpected) in 0.013 (0.028) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

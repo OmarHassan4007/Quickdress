@@ -20,7 +20,10 @@ targets:
       - package: QuickdressCore
       - package: StoragePlugins
       - package: CapturePlugins
-    scheme: {}
+    scheme:
+      testTargets:
+        - QuickdressTests
+        - QuickdressUITests
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: edu.aucegypt.quickdress
@@ -32,3 +35,30 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "5.0"
         CODE_SIGNING_ALLOWED: NO
+  QuickdressTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - QuickdressTests
+    dependencies:
+      - target: Quickdress
+      - package: QuickdressCore
+      - package: CapturePlugins
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.0"
+        CODE_SIGNING_ALLOWED: NO
+  QuickdressUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - QuickdressUITests
+    dependencies:
+      - target: Quickdress
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.0"
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: Quickdress

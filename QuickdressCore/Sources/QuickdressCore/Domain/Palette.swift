@@ -49,6 +49,11 @@ public enum Palette: String, CaseIterable, Codable, Sendable {
     var references: [RGB] {
         switch self {
         case .grey: return [rgb, RGB(0.38, 0.38, 0.39)]
+        // Second points for how these colours come out in photos of real garments
+        // (measured on the Sprint 1 test photos): faded denim, khaki chinos, dark knitwear.
+        case .blue: return [rgb, RGB(0.29, 0.40, 0.52)]
+        case .beige: return [rgb, RGB(0.70, 0.61, 0.49)]
+        case .green: return [rgb, RGB(0.10, 0.22, 0.15)]
         default: return [rgb]
         }
     }

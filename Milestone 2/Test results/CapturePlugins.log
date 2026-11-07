@@ -1,0 +1,37 @@
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version--58304C5D6DBC2206.txt
+Build complete! (0.23s)
+Test Suite 'All tests' started at 2026-11-07 21:05:18.015.
+Test Suite 'CapturePluginsPackageTests.xctest' started at 2026-11-07 21:05:18.016.
+Test Suite 'ImageScalerTests' started at 2026-11-07 21:05:18.016.
+Test Case '-[CapturePluginsTests.ImageScalerTests testDataThatIsNotAnImageGivesNothing]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testDataThatIsNotAnImageGivesNothing]' passed (0.018 seconds).
+Test Case '-[CapturePluginsTests.ImageScalerTests testJPEGOutputIsJPEG]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testJPEGOutputIsJPEG]' passed (0.030 seconds).
+Test Case '-[CapturePluginsTests.ImageScalerTests testLargePhotosAreScaledToTheLongestSideLimit]' started.
+Test Case '-[CapturePluginsTests.ImageScalerTests testLargePhotosAreScaledToTheLongestSideLimit]' passed (0.142 seconds).
+Test Suite 'ImageScalerTests' passed at 2026-11-07 21:05:18.207.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.190 (0.191) seconds
+Test Suite 'ItemAnalyzerTests' started at 2026-11-07 21:05:18.207.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testSeasonsFollowWarmth]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testSeasonsFollowWarmth]' passed (0.000 seconds).
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheColourOfAPlainImageIsMeasured]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheColourOfAPlainImageIsMeasured]' passed (0.025 seconds).
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheOvershirtIsSuggestedAsNavyOuterwear]' started.
+Test Case '-[CapturePluginsTests.ItemAnalyzerTests testTheOvershirtIsSuggestedAsNavyOuterwear]' passed (5.824 seconds).
+Test Suite 'ItemAnalyzerTests' passed at 2026-11-07 21:05:24.058.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 5.850 (5.851) seconds
+Test Suite 'SubjectLifterTests' started at 2026-11-07 21:05:24.058.
+Test Case '-[CapturePluginsTests.SubjectLifterTests testAGarmentPhotographedOnABedIsCutOut]' started.
+Test Case '-[CapturePluginsTests.SubjectLifterTests testAGarmentPhotographedOnABedIsCutOut]' passed (0.073 seconds).
+Test Suite 'SubjectLifterTests' passed at 2026-11-07 21:05:24.131.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.073 (0.073) seconds
+Test Suite 'CapturePluginsPackageTests.xctest' passed at 2026-11-07 21:05:24.131.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 6.113 (6.115) seconds
+Test Suite 'All tests' passed at 2026-11-07 21:05:24.131.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 6.113 (6.116) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

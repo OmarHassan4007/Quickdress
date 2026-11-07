@@ -36,6 +36,17 @@ jobs:
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO
 
+      - name: Run the app's unit tests on an iPhone simulator
+        run: |
+          UDID=$(xcrun simctl list devices available | grep -m1 -E "iPhone [0-9]+" | grep -oE "[0-9A-F-]{36}")
+          xcodebuild test \
+            -project Quickdress.xcodeproj \
+            -scheme Quickdress \
+            -destination "platform=iOS Simulator,id=$UDID" \
+            -derivedDataPath build-tests \
+            -only-testing:QuickdressTests \
+            CODE_SIGNING_ALLOWED=NO
+
       - name: Zip the app
         run: |
           cd build/Build/Products/Debug-iphonesimulator

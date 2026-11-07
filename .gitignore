@@ -2,8 +2,12 @@
 ~$*
 .impeccable/
 deck/
-assets/
 PRODUCT.md
+DESIGN.md
 Quickdress.xcodeproj/
 build/
 .build/
+
+# Impeccable working files and regenerable deck exports
+/assets/
+Milestone 2/Presentation/export/
