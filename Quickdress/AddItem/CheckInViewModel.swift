@@ -4,7 +4,7 @@ import Observation
 import QuickdressCore
 import CapturePlugins
 
-/// The check-in receipt for one new item (FR-02). Rules in Design/Add item interface, section 3.5.
+/// The check-in receipt for one new or existing item (FR-02).
 @MainActor
 @Observable
 final class CheckInViewModel: Identifiable {
@@ -12,7 +12,8 @@ final class CheckInViewModel: Identifiable {
         case category, colour, warmth, formality, comfort, season
     }
 
-    let id = UUID()
+    let id: UUID
+    var isNewItem: Bool
     let originalPhoto: Data
     private(set) var cutOut: Data?
     private(set) var isCuttingOut = false
@@ -40,13 +41,40 @@ final class CheckInViewModel: Identifiable {
     @ObservationIgnored private let lifter = SubjectLifter()
     @ObservationIgnored private let analyzer = ItemAnalyzer()
 
+    // MARK: Initializers
+
+    /// Init for creating a NEW item
     init(photo: Data, manager: WardrobeManager) {
+        self.id = UUID()
         self.originalPhoto = photo
         self.manager = manager
         self.number = (try? manager.nextNumber()) ?? 1
+        self.isNewItem = true
+    }
+
+    /// Init for editing an EXISTING item
+    init(item: ClothingItem, manager: WardrobeManager) {
+        self.id = item.id
+        self.originalPhoto = item.photo
+        self.manager = manager
+        self.useOriginal = true
+        self.category = item.category
+        self.colour = item.colour
+        if let exactHex = item.exactColour {
+            self.exactColour = RGB(hex: exactHex)
+        }
+        self.warmth = item.warmth
+        self.formality = item.formality
+        self.comfort = item.comfort
+        self.seasons = item.seasons
+        self.isNewItem = false
+        self.number = item.number
     }
 
     func start() {
+        // Skip cutout/AI auto-tagging when editing an existing item
+        guard isNewItem else { return }
+
         isCuttingOut = true
         Task {
             let lifted = await lifter.lift(originalPhoto)
@@ -188,12 +216,14 @@ final class CheckInViewModel: Identifiable {
         Season.allCases.filter { seasons.contains($0) }.map(\.displayName).joined(separator: ", ")
     }
 
-    // MARK: Saving
+    // MARK: Saving & Updating
 
-    /// Saves the item through the core. On failure nothing is kept and the answers stay on the receipt.
+    /// Saves or updates the item through the manager.
     func save() -> Bool {
         guard canSave, let category, let colour else { return false }
-        let item = ClothingItem(
+        
+        let itemToSave = ClothingItem(
+            id: id,
             category: category,
             colour: colour,
             warmth: warmth,
@@ -203,12 +233,17 @@ final class CheckInViewModel: Identifiable {
             number: number,
             exactColour: exactColour?.hex
         )
+        
         do {
-            saved = try manager.addItem(item, photo: photoToSave)
+            if isNewItem {
+                saved = try manager.addItem(itemToSave, photo: photoToSave)
+            } else {
+                saved = try manager.updateItem(itemToSave, photo: photoToSave)
+            }
             openLine = nil
             return true
         } catch {
-            saveError = String(localized: "Nothing was saved. Try again, or cancel and take the photo again.")
+            saveError = String(localized: "Nothing was saved. Try again, or cancel and try again.")
             return false
         }
     }
