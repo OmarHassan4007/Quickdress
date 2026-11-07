@@ -11,6 +11,12 @@ public struct ClothingItem: Identifiable, Hashable, Codable, Sendable {
     public var comfort: Int
     public var seasons: Set<Season>
     public var photo: PhotoRef
+    /// The number on the item's tag ("No. 032"). 0 means not numbered yet;
+    /// `WardrobeManager` gives every saved item a number.
+    public var number: Int
+    /// The exact colour the user picked or the app measured, as "#RRGGBB".
+    /// `colour` is always the nearest palette colour, which the outfit rules use.
+    public var exactColour: String?
 
     public init(
         id: UUID = UUID(),
@@ -20,7 +26,9 @@ public struct ClothingItem: Identifiable, Hashable, Codable, Sendable {
         formality: Int,
         comfort: Int,
         seasons: Set<Season>,
-        photo: PhotoRef = ""
+        photo: PhotoRef = "",
+        number: Int = 0,
+        exactColour: String? = nil
     ) {
         self.id = id
         self.category = category
@@ -30,6 +38,8 @@ public struct ClothingItem: Identifiable, Hashable, Codable, Sendable {
         self.comfort = comfort
         self.seasons = seasons
         self.photo = photo
+        self.number = number
+        self.exactColour = exactColour
     }
 }
 

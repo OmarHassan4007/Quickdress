@@ -2,10 +2,12 @@ import SwiftUI
 import UIKit
 import QuickdressCore
 
+/// One garment in the Wardrobe grid: the cut-out photo with its numbered tag.
 struct ItemCell: View {
     let item: ClothingItem
     let loadPhoto: () -> Data?
     @State private var thumbnail: UIImage?
+    @State private var isCutOut = false
 
     init(item: ClothingItem, loadPhoto: @escaping () -> Data?) {
         self.item = item
@@ -13,33 +15,31 @@ struct ItemCell: View {
     }
 
     var body: some View {
-        Color(.secondarySystemBackground)
-            .aspectRatio(1, contentMode: .fit)
-            .overlay {
-                if let thumbnail {
-                    Image(uiImage: thumbnail)
-                        .resizable()
-                        .scaledToFill()
-                } else {
-                    Image(systemName: "tshirt")
-                        .font(.title)
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .contentShape(RoundedRectangle(cornerRadius: 12))
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(Text(verbatim: item.accessibilityName))
-            .task(id: item.photo) {
-                thumbnail = await makeThumbnail()
-            }
+        GarmentView(
+            image: thumbnail,
+            isCutOut: isCutOut,
+            tagText: item.tagText,
+            tagColour: item.category.tagColour,
+            tagScale: 0.78,
+            showsString: false
+        )
+        .aspectRatio(0.92, contentMode: .fit)
+        .padding(.bottom, 8)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: item.accessibilityName))
+        .task(id: item.photo) {
+            let data = loadPhoto()
+            isCutOut = data?.starts(with: [0x89, 0x50, 0x4E, 0x47]) ?? false
+            thumbnail = await makeThumbnail(from: data)
+        }
     }
 
-    private func makeThumbnail() async -> UIImage? {
-        guard let data = loadPhoto(), let image = UIImage(data: data) else { return nil }
+    private func makeThumbnail(from data: Data?) async -> UIImage? {
+        guard let data, let image = UIImage(data: data) else { return nil }
         let longestSide = max(image.size.width, image.size.height)
         guard longestSide > 0 else { return nil }
-        let scale = 300 / longestSide
+        let scale = 400 / longestSide
         let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
         return await image.byPreparingThumbnail(ofSize: size)
     }

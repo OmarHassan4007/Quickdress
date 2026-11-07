@@ -41,4 +41,12 @@ final class FilePhotoStoreTests: XCTestCase {
     func testUnknownReferenceLoadsNothing() throws {
         XCTAssertNil(try makeStore().loadPhoto("missing.jpg"))
     }
+
+    func testCutOutsAreStoredAsPNGAndPhotosAsJPEG() throws {
+        let store = try makeStore()
+        let png = Data([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])
+
+        XCTAssertTrue(try store.savePhoto(png).hasSuffix(".png"))
+        XCTAssertTrue(try store.savePhoto(photoData).hasSuffix(".jpg"))
+    }
 }

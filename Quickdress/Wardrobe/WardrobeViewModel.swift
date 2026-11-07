@@ -9,7 +9,7 @@ final class WardrobeViewModel {
     private(set) var items: [ClothingItem] = []
     private(set) var loadFailed = false
 
-    private let manager: WardrobeManager
+    let manager: WardrobeManager
     @ObservationIgnored private var photoCache: [UUID: Data] = [:]
 
     init(manager: WardrobeManager, bus: EventBus) {

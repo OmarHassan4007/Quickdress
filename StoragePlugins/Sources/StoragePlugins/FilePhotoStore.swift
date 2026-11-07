@@ -20,7 +20,7 @@ public final class FilePhotoStore: PhotoStore {
     }
 
     public func savePhoto(_ data: Data) throws -> PhotoRef {
-        let ref = UUID().uuidString + ".jpg"
+        let ref = UUID().uuidString + "." + Self.fileExtension(for: data)
         try data.write(to: url(for: ref), options: .atomic)
         return ref
     }
@@ -31,6 +31,11 @@ public final class FilePhotoStore: PhotoStore {
 
     public func deletePhoto(_ ref: PhotoRef) {
         try? FileManager.default.removeItem(at: url(for: ref))
+    }
+
+    /// Cut-out photos are PNG (they keep transparency); everything else is stored as JPEG.
+    static func fileExtension(for data: Data) -> String {
+        data.starts(with: [0x89, 0x50, 0x4E, 0x47]) ? "png" : "jpg"
     }
 
     private func url(for ref: PhotoRef) -> URL {

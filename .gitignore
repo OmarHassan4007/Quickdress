@@ -4,3 +4,6 @@
 deck/
 assets/
 PRODUCT.md
+Quickdress.xcodeproj/
+build/
+.build/

@@ -1,61 +1,54 @@
 import SwiftUI
 import QuickdressCore
 
+/// Category and colour filters, drawn as paper tags (FR-04).
 struct WardrobeFilterBar: View {
     @Binding var filter: WardrobeFilter
     let colours: [Palette]
 
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(alignment: .leading, spacing: 8) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    FilterChip(title: String(localized: "All"), isSelected: filter.category == nil) {
+                    FilterChip(title: String(localized: "All"), fill: Theme.paper, isSelected: filter.category == nil) {
                         filter.category = nil
                     }
                     ForEach(QuickdressCore.Category.allCases, id: \.self) { category in
-                        FilterChip(title: category.pluralName, isSelected: filter.category == category) {
+                        FilterChip(title: category.pluralName, fill: category.tagColour, isSelected: filter.category == category) {
                             filter.category = filter.category == category ? nil : category
                         }
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 3)
             }
             if !colours.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        FilterChip(title: String(localized: "Any colour"), isSelected: filter.colour == nil) {
+                        FilterChip(title: String(localized: "Any colour"), fill: Theme.paper, isSelected: filter.colour == nil) {
                             filter.colour = nil
                         }
                         ForEach(colours, id: \.self) { colour in
-                            FilterChip(
-                                title: colour.displayName,
-                                swatch: colour.swatch,
-                                isSelected: filter.colour == colour
-                            ) {
+                            FilterChip(title: colour.displayName, swatch: colour.swatch, fill: Theme.paper, isSelected: filter.colour == colour) {
                                 filter.colour = filter.colour == colour ? nil : colour
                             }
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 3)
                 }
             }
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 6)
     }
 }
 
 struct FilterChip: View {
     let title: String
-    let swatch: Color?
+    var swatch: Color? = nil
+    let fill: Color
     let isSelected: Bool
     let action: () -> Void
-
-    init(title: String, swatch: Color? = nil, isSelected: Bool, action: @escaping () -> Void) {
-        self.title = title
-        self.swatch = swatch
-        self.isSelected = isSelected
-        self.action = action
-    }
 
     var body: some View {
         Button(action: action) {
@@ -64,17 +57,23 @@ struct FilterChip: View {
                     Circle()
                         .fill(swatch)
                         .frame(width: 12, height: 12)
-                        .overlay(Circle().strokeBorder(Color.secondary.opacity(0.5)))
+                        .overlay(Circle().strokeBorder(Theme.ink.opacity(0.35)))
                 }
                 Text(title)
-                    .font(.subheadline)
+                    .font(.ticket(13.5, relativeTo: .subheadline))
+                    .foregroundStyle(Theme.ink)
+                    .lineLimit(1)
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 6)
-            .background(isSelected ? Color.accentColor : Color(.secondarySystemFill), in: Capsule())
-            .foregroundStyle(isSelected ? Color.white : Color.primary)
+            .padding(.leading, 18)
+            .padding(.trailing, 11)
+            .frame(minHeight: 32)
+            .background(TagShape().fill(fill))
+            .overlay(TagShape().stroke(Theme.ink, lineWidth: isSelected ? 2 : 0))
+            .shadow(color: .black.opacity(0.10), radius: 1, y: 1)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .frame(minHeight: 44)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
