@@ -75,3 +75,29 @@ extension ClothingItem {
         String(localized: "\(colour.displayName) \(category.displayName)")
     }
 }
+
+extension ClothingItem.Level {
+    var displayName: String {
+        switch self {
+        case .warmth: return String(localized: "Warmth")
+        case .formality: return String(localized: "Formality")
+        case .comfort: return String(localized: "Comfort")
+        }
+    }
+}
+
+extension LevelBand {
+    /// "Low", "Medium", "High".
+    var displayName: String {
+        switch self {
+        case .low: return String(localized: "Low")
+        case .medium: return String(localized: "Medium")
+        case .high: return String(localized: "High")
+        }
+    }
+
+    /// The levels the band covers, as printed under its name: "1-2", "3", "4-5".
+    var rangeText: String {
+        range.lowerBound == range.upperBound ? "\(range.lowerBound)" : "\(range.lowerBound)-\(range.upperBound)"
+    }
+}

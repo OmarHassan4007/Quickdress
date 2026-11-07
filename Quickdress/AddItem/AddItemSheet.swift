@@ -118,6 +118,7 @@ private struct SourceTicket: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier(source.id)
         .padding(.horizontal, 16)
         .padding(.bottom, 12)
     }
