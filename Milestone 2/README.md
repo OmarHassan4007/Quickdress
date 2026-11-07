@@ -18,7 +18,7 @@ Each document is provided as a Word file and as a PDF.
 | `Milestone 2.docx` / `.pdf` | The Sprint 1 report. It covers the sprint backlog, development and demo with screenshots, architecture and lower-level design changes, testing (methodology, 22 test cases, results and defects), the retrospective, and the documentation updates. |
 | `Quickdress_Requirements_Specification.docx` / `.pdf` | Requirements Specification, revision 2, with a change log. |
 | `Quickdress_Design_Specification.docx` / `.pdf` | Design Specification, revision 2, with a change log. The new section 7 is the lower-level design as built in Sprint 1. |
-| `Presentation/Quickdress_Milestone2_Presentation.pdf` / `.pptx` | The 16-slide Milestone 2 deck. The .pptx has one image per slide and speaker notes. `Presentation/deck.html` is the source: open it in a browser to present, and the DONE stamps land as each slide comes into view. |
+| `Presentation/Quickdress_Milestone2_Presentation.pdf` / `.pptx` | The 17-slide Milestone 2 deck. The .pptx has one image per slide and speaker notes. `Presentation/deck.html` is the source: open it in a browser to present, and the DONE stamps land as each slide comes into view. |
 | `Test results/` | Logs of the automated test runs: three Swift packages, plus the app's unit and UI tests. |
 | `diagrams/` | The new and updated figures, as images. `component3.png` is the component diagram with Sprint 1 status, `class3.png` the class diagram of the built code, `seq_add.png` and `seq_edit.png` the sequence diagrams for adding, editing and deleting an item, and `sprints2.png` the sprint plan. |
 
